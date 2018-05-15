@@ -64,6 +64,16 @@
         This page should also be used to describe the features and improvements
         you've added.
       </p>
+
+      <h1>About the Team</h1>
+      <p>We are Team 27! In other words javaMcJavaFace. Here's a little info about each one of us:
+      </p>
+      <ul>
+        <li><strong>Deniz Kecik:</strong> I am a 2nd year Computer Science student at University of Pennsylvania. I'm from Istanbul, Turkey, one of the best cities in the world. I love traveling and trying out new food, restaurants, meeting new people, anything new in general. Additionally, I am very outdoorsy and love playing Tennis, Basketball and Soccer. My favorite shows are The Office and Game of Thrones. Fun fact about me: my name in Turkish means the sea, and in honor of my name, I also love windsurfing and sailing. So basically, I'm always looking forward to the summer! </li>
+        <li><strong>Felipe Campos:</strong> I'm a freshman at UC Berkeley studying Electrical Engineering and Computer Science with a concentration in either Economics or Physics. I was born in LA but grew up mainly in Brazil (where my family is originally from) and San Francisco, before moving to Madison, Wisconsin and now recently Richmond, Virginia. I enjoy running, hiking, basketball/tennis, listening to podcasts, etc. etc. Some other stuff: my favorite shows are Archer and the Eric Andre Show, my favorite artists are Anderson .Paak, Brockhampton, Childish Gambino, and Isaiah Rashad Additionally, I love anything to do with space and astrophysics and I also think fractals (mandelbrot, julia sets, iterated function systems) are just the coolest things</li>
+        <li><strong>Kahlil Greene:</strong> My name is Kahlil (pronounced Kuh-leel) Greene. I was born and raised right outside of Washington DC, in a place called Montgomery County, Maryland. Fun fact: the rappers Wale and Logic were both raised there too. At Yale, I am double-majoring in Computer Science and Economics. For fun, I like to draw, dance, watch movies, and rap. I am involved in student government, nonprofit work, and finance groups on campus.</li>
+        <li><strong>Yvonne Sanders:</strong> I am a 2nd year Computer Information Systems and Graphic Design double major at Hampton University in Hampton Virginia. I am from Raleigh, NC. I am on flagline in the band at my school and I am in a hip hop dance troupe called majestic. As you can tell I love to dance and performance I am a musical theatre buff and I love fashion.</li>
+      </ul>
     </div>
   </div>
 </body>
