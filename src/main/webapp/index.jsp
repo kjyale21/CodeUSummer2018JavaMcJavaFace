@@ -46,6 +46,26 @@
         <li>View the <a href="/about.jsp">about</a> page to learn more about the
             project.</li>
       </ul>
+
+      <h1>Activity Feed</h1>
+      <h3>Here's some highlights from what's happening on the site:</h3>
+
+      <hr/>
+
+          <div id="chat">
+            <ul>
+          <%
+            for (int i = 0; i < 3; i += 1) {
+          %>
+            <li><strong>Now:</strong> I liek chicken.</li>
+          <%
+            }
+          %>
+            </ul>
+          </div>
+
+      <hr/>
+
     </div>
   </div>
 </body>
