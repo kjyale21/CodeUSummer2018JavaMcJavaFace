@@ -30,6 +30,7 @@
       <a href="/login">Login</a>
     <% } %>
     <a href="/about.jsp">About</a>
+    <a href="/activityfeed">Activity</a>
   </nav>
 
   <div id="container">
@@ -45,26 +46,9 @@
             create or join a conversation.</li>
         <li>View the <a href="/about.jsp">about</a> page to learn more about the
             project.</li>
+        <li>Check out the <a href="/activityfeed">activity feed</a> to see what
+            people are up to!</li>
       </ul>
-
-      <h1>Activity Feed</h1>
-      <h3>Here's some highlights from what's happening on the site:</h3>
-
-      <hr/>
-
-          <div id="chat">
-            <ul>
-          <%
-            for (int i = 0; i < 3; i += 1) {
-          %>
-            <li><strong>Now:</strong> I liek chicken.</li>
-          <%
-            }
-          %>
-            </ul>
-          </div>
-
-      <hr/>
 
     </div>
   </div>

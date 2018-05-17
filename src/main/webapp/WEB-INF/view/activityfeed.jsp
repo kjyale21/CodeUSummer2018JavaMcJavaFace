@@ -16,7 +16,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Register</title>
+  <title>Activity Feed</title>
   <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
@@ -24,9 +24,9 @@
   <nav>
     <a id="navTitle" href="/">CodeU Chat App</a>
     <a href="/conversations">Conversations</a>
-    <% if(request.getSession().getAttribute("user") != null) { %>
+    <% if(request.getSession().getAttribute("user") != null){ %>
       <a>Hello <%= request.getSession().getAttribute("user") %>!</a>
-    <% } else { %>
+    <% } else{ %>
       <a href="/login">Login</a>
     <% } %>
     <a href="/about.jsp">About</a>
@@ -34,23 +34,29 @@
   </nav>
 
   <div id="container">
-    <h1>Register</h1>
+    <div
+      style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px;">
 
-    <% if(request.getAttribute("error") != null){ %>
-        <h2 style="color:red"><%= request.getAttribute("error") %></h2>
-    <% } %>
+      <h1>Activity Feed</h1>
+      <h3>Here's some highlights from what's happening on the site:</h3>
 
-    <form action="/register" method="POST">
-      <label for="username">Username: </label>
-      <br/>
-      <input type="text" name="username" id="username">
-      <br/>
-      <label for="password">Password: </label>
-      <br/>
-      <input type="password" name="password" id="password">
-      <br/><br/>
-      <button type="submit">Submit</button>
-    </form>
+      <hr/>
+
+          <div id="chat">
+            <ul>
+          <%
+            for (int i = 0; i < 3; i += 1) {
+          %>
+            <li><strong>Now:</strong> I liek chicken.</li>
+          <%
+            }
+          %>
+            </ul>
+          </div>
+
+      <hr/>
+
+    </div>
   </div>
 </body>
 </html>
