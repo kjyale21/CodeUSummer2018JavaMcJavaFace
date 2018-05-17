@@ -18,7 +18,9 @@ import javax.servlet.http.HttpServletResponse;
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
 
+/** Servlet class responsible for the Activity Feed. */
 public class ActivityFeedServlet extends HttpServlet {
+    
     /** Store class that gives access to Conversations. */
     private ConversationStore conversationStore;
 
@@ -28,7 +30,7 @@ public class ActivityFeedServlet extends HttpServlet {
     /** Store class that gives access to Users. */
     private UserStore userStore;
 
-    /** Set up state for handling chat requests. */
+    /** Set up state for handling requests. */
     @Override
     public void init() throws ServletException {
         super.init();
@@ -62,9 +64,9 @@ public class ActivityFeedServlet extends HttpServlet {
     }
 
     /**
-     * This function fires when a user navigates to the chat page. It gets the conversation title from
-     * the URL, finds the corresponding Conversation, and fetches the messages in that Conversation.
-     * It then forwards to chat.jsp for rendering.
+     * This function fires when a user navigates to the Activity page. It grabs every active conversation
+     * finds the corresponding ID, and maps those conversations to their respective messages.
+     * It then forwards to activityfeed.jsp for rendering.
      */
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
