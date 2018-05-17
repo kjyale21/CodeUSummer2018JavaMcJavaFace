@@ -13,11 +13,24 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 --%>
+<%@ page import="java.util.List" %>
+<%@ page import="codeu.model.data.Conversation" %>
+<%@ page import="codeu.model.data.Message" %>
+<%@ page import="codeu.model.store.basic.UserStore" %>
+
 <!DOCTYPE html>
 <html>
 <head>
   <title>Activity Feed</title>
   <link rel="stylesheet" href="/css/main.css">
+
+  <style>
+      #chat {
+        background-color: white;
+        height: 500px;
+        overflow-y: scroll
+      }
+  </style>
 </head>
 <body>
 
@@ -34,28 +47,37 @@
   </nav>
 
   <div id="container">
-    <div
-      style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px;">
 
       <h1>Activity Feed</h1>
       <h3>Here's some highlights from what's happening on the site:</h3>
 
       <hr/>
-
+      <%
+      List<Conversation> conversations =
+        (List<Conversation>) request.getAttribute("conversations");
+      if(conversations == null || conversations.isEmpty()){
+      %>
+        <p>There are no active conversations at the moment.</p>
+      <%
+      }
+      else{
+      %>
           <div id="chat">
-            <ul>
+          <ul class="chat">
           <%
-            for (int i = 0; i < 3; i += 1) {
+            for(Conversation conversation : conversations){
           %>
-            <li><strong>Now:</strong> I liek chicken.</li>
+            <li><strong>Conversation:</strong> <a href="/chat/<%= conversation.getTitle() %>">
+              <%= conversation.getTitle() %></a></li>
           <%
             }
           %>
-            </ul>
+          </ul>
           </div>
-
+      <%
+        }
+      %>
       <hr/>
-
     </div>
   </div>
 </body>

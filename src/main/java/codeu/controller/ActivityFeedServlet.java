@@ -8,6 +8,7 @@ import codeu.model.store.basic.MessageStore;
 import codeu.model.store.basic.UserStore;
 import java.io.IOException;
 import java.time.Instant;
+import java.util.HashMap;
 import java.util.List;
 import java.util.UUID;
 import javax.servlet.ServletException;
@@ -69,7 +70,14 @@ public class ActivityFeedServlet extends HttpServlet {
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
         List<Conversation> conversations = conversationStore.getAllConversations();
+        HashMap<Conversation, List<Message>> mapping = new HashMap<>();
+        for (Conversation conv : conversations) {
+            List<Message> messages = messageStore.getMessagesInConversation(conv.getId());
+            mapping.put(conv, messages);
+        }
+
         request.setAttribute("conversations", conversations);
+        request.setAttribute("mapping", mapping);
         request.getRequestDispatcher("/WEB-INF/view/activityfeed.jsp").forward(request, response);
     }
 }
