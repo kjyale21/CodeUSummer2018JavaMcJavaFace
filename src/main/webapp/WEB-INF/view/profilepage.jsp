@@ -47,9 +47,13 @@
       <% if(request.getSession().getAttribute("user") == null){ %>
         Please <a href="/login">login</a> to see your profile page!
       <% } else{ %>
-        <h1>THIS WILL BE THE PROFILE PAGE</h1>
+        <h1><%= request.getSession().getAttribute("user") %>'s Profile Page</h1>
         <p>
-          Yep
+          <h4>About <%= request.getSession().getAttribute("user") %></h4><br>
+          <h4>Edit Your About Me (only you can see this)</h4>
+          <textarea name="message" rows="7" cols="75">
+
+          </textarea>
         </p>
       <% } %>
     </div>
