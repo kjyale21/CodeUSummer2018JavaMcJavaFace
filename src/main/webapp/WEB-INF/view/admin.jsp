@@ -62,6 +62,7 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
   <li><b>Messages: </b> <%= MessageStore.getInstance().amountMessages()%> </li>
   <li><b>Newest User: <%= UserStore.getInstance().newestUser() %> </b></li>
 </ul>
+<iframe src="https://calendar.google.com/calendar/embed?src=kgreene%40codeustudents.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
     </div>
   </div>
 </body>
