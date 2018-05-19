@@ -13,11 +13,24 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 --%>
+<%@ page import="java.util.List" %>
+<%@ page import="codeu.model.data.Conversation" %>
+<%@ page import="codeu.model.data.Message" %>
+<%@ page import="codeu.model.data.User" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CodeU Chat App</title>
+  <title>Activity Feed</title>
   <link rel="stylesheet" href="/css/main.css">
+
+  <style>
+      #chat {
+        background-color: white;
+        height: 500px;
+        overflow-y: scroll
+      }
+  </style>
 </head>
 <body>
 
@@ -39,22 +52,37 @@
   </nav>
 
   <div id="container">
-    <div
-      style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px;">
 
-      <h1>CodeU Chat App</h1>
-      <h2>Welcome from Team 27, javaMcJavaFace!</h2>
+      <h1>Activity Feed</h1>
+      <h3>Here's some highlights from what's happening on the site:</h3>
 
-      <ul>
-        <li><a href="/login">Login</a> to get started.</li>
-        <li>Go to the <a href="/conversations">conversations</a> page to
-            create or join a conversation.</li>
-        <li>View the <a href="/about.jsp">about</a> page to learn more about the
-            project.</li>
-        <li>Check out the <a href="/activityfeed">activity feed</a> to see what
-            people are up to!</li>
-      </ul>
-
+      <hr/>
+      <%
+      List<Conversation> conversations =
+        (List<Conversation>) request.getAttribute("conversations");
+      if(conversations == null || conversations.isEmpty()){
+      %>
+        <p>There are no active conversations at the moment.</p>
+      <%
+      }
+      else{
+      %>
+          <div id="chat">
+          <ul class="chat">
+          <%
+            for(Conversation conversation : conversations){
+          %>
+            <li><strong>Conversation:</strong> <a href="/chat/<%= conversation.getTitle() %>">
+              <%= conversation.getTitle() %></a></li>
+          <%
+            }
+          %>
+          </ul>
+          </div>
+      <%
+        }
+      %>
+      <hr/>
     </div>
   </div>
 </body>
