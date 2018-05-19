@@ -1,0 +1,25 @@
+!SESSION 2018-05-18 13:07:54.137 -----------------------------------------------
+eclipse.buildId=4.7.3.M20180330-0640
+java.version=10.0.1
+java.vendor=Oracle Corporation
+BootLoader constants: OS=macosx, ARCH=x86_64, WS=cocoa, NL=en_US
+Framework arguments:  -product org.eclipse.epp.package.java.product -product org.eclipse.epp.package.java.product -keyring /Users/kahlilgreene/.eclipse_keyring
+Command-line arguments:  -os macosx -ws cocoa -arch x86_64 -product org.eclipse.epp.package.java.product -data /Users/kahlilgreene/Desktop/codeu/CodeUSpring2018 -product org.eclipse.epp.package.java.product -keyring /Users/kahlilgreene/.eclipse_keyring
+
+!ENTRY org.eclipse.core.net 1 0 2018-05-18 13:07:57.953
+!MESSAGE System property http.nonProxyHosts has been set to local|*.local|169.254/16|*.169.254/16 by an external source. This value will be overwritten using the values from the preferences
+
+!ENTRY org.eclipse.tcf 4 0 2018-05-18 13:08:04.060
+!MESSAGE Cannot send datagram packet to /169.254.255.255
+!STACK 0
+java.io.IOException: No route to host
+	at java.base/java.net.PlainDatagramSocketImpl.send(Native Method)
+	at java.base/java.net.DatagramSocket.send(DatagramSocket.java:695)
+	at org.eclipse.tcf.internal.services.local.LocatorService.sendDatagramPacket(LocatorService.java:948)
+	at org.eclipse.tcf.internal.services.local.LocatorService.sendPeersRequest(LocatorService.java:1031)
+	at org.eclipse.tcf.internal.services.local.LocatorService.refresh_timer(LocatorService.java:693)
+	at org.eclipse.tcf.internal.services.local.LocatorService.access$1(LocatorService.java:650)
+	at org.eclipse.tcf.internal.services.local.LocatorService$1$1.run(LocatorService.java:230)
+	at org.eclipse.tcf.protocol.Protocol$3.run(Protocol.java:242)
+	at org.eclipse.tcf.EventQueue.run(EventQueue.java:95)
+	at java.base/java.lang.Thread.run(Thread.java:844)

@@ -49,6 +49,7 @@ public class ConversationStore {
     return new ConversationStore(persistentStorageAgent);
   }
 
+  
   /**
    * The PersistentStorageAgent responsible for loading Conversations from and saving Conversations
    * to Datastore.
@@ -95,6 +96,12 @@ public class ConversationStore {
     }
     return null;
   }
+  
+  /** amount of conversations*/
+  public int amountConversations() {
+	  return conversations.size();
+  }
+
 
   /** Sets the List of Conversations stored by this ConversationStore. */
   public void setConversations(List<Conversation> conversations) {

@@ -49,6 +49,7 @@ public class MessageStore {
   public static MessageStore getTestInstance(PersistentStorageAgent persistentStorageAgent) {
     return new MessageStore(persistentStorageAgent);
   }
+  
 
   /**
    * The PersistentStorageAgent responsible for loading Messages from and saving Messages to
@@ -84,6 +85,12 @@ public class MessageStore {
 
     return messagesInConversation;
   }
+  
+  /** amount of messages*/
+  public int amountMessages() {
+	  return messages.size();
+  }
+
 
   /** Sets the List of Messages stored by this MessageStore. */
   public void setMessages(List<Message> messages) {

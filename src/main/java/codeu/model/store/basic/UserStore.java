@@ -92,6 +92,15 @@ public class UserStore {
     }
     return null;
   }
+  
+ /** amount of users */
+  public String newestUser() {
+	  return users.get(0).getName();
+  }
+  
+  public int amountUsers() {
+	  return users.size();
+  }
 
   /**
    * Add a new user to the current set of users known to the application. This should only be called

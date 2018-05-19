@@ -13,6 +13,17 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 --%>
+
+<%@ page import="java.util.List" %>
+<%@ page import="codeu.model.data.Conversation" %>
+<%@ page import="codeu.model.data.Message" %>
+<%@ page import="codeu.model.store.basic.UserStore" %>
+<%@ page import="codeu.model.store.basic.MessageStore" %>
+<%@ page import="codeu.model.store.basic.ConversationStore" %>
+<%
+Conversation conversation = (Conversation) request.getAttribute("conversation");
+List<Message> messages = (List<Message>) request.getAttribute("messages");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -40,10 +51,17 @@
     <div
       style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px;">
 
-      <h1>Behide the scenes of the chat app.</h1>
+      <h1>Behind the scenes of the chat app.</h1>
       <p>
-        Here is where adminstrators can see statistics and data about the application.
+        Here is where administrators can see statistics and data about the application.
       </p>
+      <ul>
+     
+  <li><b>Users: </b> <%= UserStore.getInstance().amountUsers()%> </li>
+  <li><b>Conversations:</b> <%= ConversationStore.getInstance().amountConversations()%> </li>
+  <li><b>Messages: </b> <%= MessageStore.getInstance().amountMessages()%> </li>
+  <li><b>Newest User: <%= UserStore.getInstance().newestUser() %> </b></li>
+</ul>
     </div>
   </div>
 </body>
