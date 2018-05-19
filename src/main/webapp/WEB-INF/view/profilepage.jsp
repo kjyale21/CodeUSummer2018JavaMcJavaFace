@@ -49,15 +49,26 @@
       <% } else{ %>
         <h1><%= request.getSession().getAttribute("user") %>'s Profile Page</h1>
         <p>
-          <h4>About <%= request.getSession().getAttribute("user") %></h4><br>
+          <h4>About <%= request.getSession().getAttribute("user") %></h4>
+            <% if (request.getSession().getAttribute("message") == null) { %>
+              Write a bio below!
+            <% } else{ %>
+              <%= request.getSession().getAttribute("message") %>
+            <% } %>
+          <br>
           <h4>Edit Your About Me (only you can see this)</h4>
           <!--<form action="/profilepage" method="POST">
           </form>-->
           <form action="/profilepage">
             <textarea name="message" rows="7" cols="100"></textarea>
-            <br>
-            <input type="submit">
-          </form>
+            <% if (request.getSession().getAttribute("message") != null) { %>
+              <input type="submit">
+            <% } else{ %>
+              <input type="submit">
+            <% } %>
+          </form><br>
+          <h4><%= request.getSession().getAttribute("user") %>'s Sent Messages</h4>
+          Here will be the sent messages
         </p>
       <% } %>
     </div>
