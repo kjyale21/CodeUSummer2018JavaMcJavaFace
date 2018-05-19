@@ -51,9 +51,13 @@
         <p>
           <h4>About <%= request.getSession().getAttribute("user") %></h4><br>
           <h4>Edit Your About Me (only you can see this)</h4>
-          <textarea name="message" rows="7" cols="75">
-
-          </textarea>
+          <!--<form action="/profilepage" method="POST">
+          </form>-->
+          <form action="/profilepage">
+            <textarea name="message" rows="7" cols="100"></textarea>
+            <br>
+            <input type="submit">
+          </form>
         </p>
       <% } %>
     </div>
