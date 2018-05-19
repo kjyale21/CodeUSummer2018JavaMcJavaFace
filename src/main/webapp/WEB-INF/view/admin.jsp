@@ -27,8 +27,10 @@
     <% if(request.getSession().getAttribute("user") != null){ %>
       <a>Hello <%= request.getSession().getAttribute("user") %>!</a>
     <% } else{ %>
+      <a href="/login">Login</a>
     <% } %>
     <a href="/about.jsp">About</a>
+    <a href="/activityfeed">Activity</a>
     <% if(request.getSession().getAttribute("user") != null){ %>
        <a href="/admin">Admin</a>
     <% } else{ %>
@@ -40,9 +42,9 @@
     <div
       style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px;">
 
-      <h1>Behide the scenes of the chat app.</h1>
+      <h1>Behind the scenes of the chat app.</h1>
       <p>
-        Here is where adminstrators can see statistics and data about the application.
+        Here is where administrators can see statistics and data about the application.
       </p>
     </div>
   </div>

@@ -71,13 +71,15 @@ public class ActivityFeedServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
+        List<User> users = userStore.getAllUsers();
         List<Conversation> conversations = conversationStore.getAllConversations();
         HashMap<Conversation, List<Message>> mapping = new HashMap<>();
-        for (Conversation conv : conversations) {
-            List<Message> messages = messageStore.getMessagesInConversation(conv.getId());
-            mapping.put(conv, messages);
+        for (Conversation conversation : conversations) {
+            List<Message> messages = messageStore.getMessagesInConversation(conversation.getId());
+            mapping.put(conversation, messages);
         }
 
+        request.setAttribute("users", users);
         request.setAttribute("conversations", conversations);
         request.setAttribute("mapping", mapping);
         request.getRequestDispatcher("/WEB-INF/view/activityfeed.jsp").forward(request, response);

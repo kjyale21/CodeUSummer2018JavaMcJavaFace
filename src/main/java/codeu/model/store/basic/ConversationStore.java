@@ -17,7 +17,9 @@ package codeu.model.store.basic;
 import codeu.model.data.Conversation;
 import codeu.model.store.persistence.PersistentStorageAgent;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.UUID;
 
 /**
  * Store class that uses in-memory data structures to hold values and automatically loads from and
@@ -55,49 +57,53 @@ public class ConversationStore {
    */
   private PersistentStorageAgent persistentStorageAgent;
 
-  /** The in-memory list of Conversations. */
-  private List<Conversation> conversations;
+  /** The in-memory mapping of UUIDs to Conversations. */
+  private HashMap<UUID, Conversation> conversations;
+
+  /** An in-memory mapping of conversation titles to IDs. */
+  private HashMap<String, UUID> ids;
 
   /** This class is a singleton, so its constructor is private. Call getInstance() instead. */
   private ConversationStore(PersistentStorageAgent persistentStorageAgent) {
     this.persistentStorageAgent = persistentStorageAgent;
-    conversations = new ArrayList<>();
+    conversations = new HashMap<>();
+    ids = new HashMap<>();
   }
 
-/** Access the current set of conversations known to the application. */
+  /** Access the current set of conversations known to the application. */
   public List<Conversation> getAllConversations() {
-    return conversations;
+    List<Conversation> all = new ArrayList<>(conversations.values());
+    return all;
   }
 
   /** Add a new conversation to the current set of conversations known to the application. */
   public void addConversation(Conversation conversation) {
-    conversations.add(conversation);
+    conversations.put(conversation.getId(), conversation);
+    ids.put(conversation.getTitle(), conversation.getId());
     persistentStorageAgent.writeThrough(conversation);
   }
 
   /** Check whether a Conversation title is already known to the application. */
   public boolean isTitleTaken(String title) {
-    // This approach will be pretty slow if we have many Conversations.
-    for (Conversation conversation : conversations) {
-      if (conversation.getTitle().equals(title)) {
-        return true;
-      }
-    }
-    return false;
+    return ids.containsKey(title);
   }
 
   /** Find and return the Conversation with the given title. */
   public Conversation getConversationWithTitle(String title) {
-    for (Conversation conversation : conversations) {
-      if (conversation.getTitle().equals(title)) {
-        return conversation;
-      }
-    }
-    return null;
+    UUID id = ids.get(title);
+    return getConversationWithID(id);
   }
 
-  /** Sets the List of Conversations stored by this ConversationStore. */
+  /** Find and return the Conversation with the given id. */
+  private Conversation getConversationWithID(UUID id) {
+    return conversations.get(id);
+  }
+
+  /** Sets the Conversations stored by this ConversationStore. */
   public void setConversations(List<Conversation> conversations) {
-    this.conversations = conversations;
+    for (Conversation conversation : conversations) {
+      this.conversations.put(conversation.getId(), conversation);
+      this.ids.put(conversation.getTitle(), conversation.getId());
+    }
   }
 }
