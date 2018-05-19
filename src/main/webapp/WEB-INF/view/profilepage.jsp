@@ -44,11 +44,14 @@
   <div id="container">
     <div
       style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px;">
-
-      <h1>THIS WILL BE THE PROFILE PAGE</h1>
-      <p>
-        Yep
-      </p>
+      <% if(request.getSession().getAttribute("user") == null){ %>
+        Please <a href="/login">login</a> to see your profile page!
+      <% } else{ %>
+        <h1>THIS WILL BE THE PROFILE PAGE</h1>
+        <p>
+          Yep
+        </p>
+      <% } %>
     </div>
   </div>
 </body>
