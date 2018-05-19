@@ -96,8 +96,9 @@ public class ConversationStore {
   }
   
   /** amount of conversations*/
-  public int amountConversations() {
-	  return conversations.size();
+  public int getAmountConversations() {
+	  List<Conversation> all = new ArrayList<>(conversations.values());
+	  return all.size();
   }
 
 

@@ -95,12 +95,14 @@ public class UserStore {
   }
   
  /** amount of users */
-  public String newestUser() {
-	  return users.get(0).getName();
+  public String getNewestUser() {
+	  List<User> all = new ArrayList<>(users.values());
+	  return all.get(0).getName();
   }
   
-  public int amountUsers() {
-	  return users.size();
+  public int getAmountUsers() {
+	  List<User> all = new ArrayList<>(users.values());
+	  return all.size();
   }
 
   /**

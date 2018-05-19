@@ -87,8 +87,12 @@ public class MessageStore {
   }
   
   /** amount of messages*/
-  public int amountMessages() {
+  public int getAmountMessages() {
 	  return messages.size();
+  }
+  
+  public String getNewestMessage() {
+	  return messages.get(0).getContent();
   }
 
 

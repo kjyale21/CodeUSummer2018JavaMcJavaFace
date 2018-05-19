@@ -59,12 +59,11 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
       </p>
       <ul>
      
-  <li><b>Users: </b> <%= UserStore.getInstance().amountUsers()%> </li>
-  <li><b>Conversations:</b> <%= ConversationStore.getInstance().amountConversations()%> </li>
-  <li><b>Messages: </b> <%= MessageStore.getInstance().amountMessages()%> </li>
-  <li><b>Newest User: <%= UserStore.getInstance().newestUser() %> </b></li>
+  <li><b>Users: </b> <%= UserStore.getInstance().getAmountUsers() %> </li> 
+  <li><b>Conversations:</b> <%= ConversationStore.getInstance().getAmountConversations() %> </li> 
+  <li><b>Messages: </b> <%= MessageStore.getInstance().getAmountMessages() %> </li>
+  <li><b>Newest User: <%= UserStore.getInstance().getNewestUser() %> </b></li> 
 </ul>
-<iframe src="https://calendar.google.com/calendar/embed?src=kgreene%40codeustudents.com&ctz=America%2FNew_York" style="border: 0" width="800" height="600" frameborder="0" scrolling="no"></iframe>
     </div>
   </div>
 </body>
