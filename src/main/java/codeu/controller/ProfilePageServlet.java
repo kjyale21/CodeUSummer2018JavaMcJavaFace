@@ -81,53 +81,24 @@ public class ProfilePageServlet extends HttpServlet {
   }
 
   /**
-     * This function fires when a user navigates to the profile page. It grabs every active conversation
-     * finds the corresponding ID, and maps those conversations to their respective messages.
+     * This function fires when a user navigates to the profile page.
+     * It displays every active conversation of the current user.
      * It then forwards to profilepage.jsp for rendering.
      */
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        List<User> users = userStore.getAllUsers();
-        List<Conversation> conversations = conversationStore.getAllConversations();
-        HashMap<Conversation, List<Message>> mapping = new HashMap<>();
-        for (Conversation conversation : conversations) {
+        List<Conversation> conversationList = conversationStore.getAllConversations();
+        List<User> userList = userStore.getAllUsers();
+        HashMap<Conversation, List<Message>> conversationToMessageList = new HashMap<>();
+        for (Conversation conversation : conversationList) {
             List<Message> messages = messageStore.getMessagesInConversation(conversation.getId());
-            mapping.put(conversation, messages);
+            conversationToMessageList.put(conversation, messages);
         }
 
-        request.setAttribute("users", users);
-        request.setAttribute("conversations", conversations);
-        request.setAttribute("mapping", mapping);
+        request.setAttribute("users", userList);
+        request.setAttribute("conversations", conversationList);
+        request.setAttribute("conversationToMessageList", conversationToMessageList);
         request.getRequestDispatcher("/WEB-INF/view/profilepage.jsp").forward(request, response);
     }
-
-  // /**
-  //  * This function fires when a user submits the login form. It gets the username and password from
-  //  * the submitted form data, checks for validity and if correct adds the username to the session so
-  //  * we know the user is logged in.
-  //  */
-  // @Override
-  // public void doPost(HttpServletRequest request, HttpServletResponse response)
-  //     throws IOException, ServletException {
-  //   String username = request.getParameter("username");
-  //   String password = request.getParameter("password");
-
-  //   if (!userStore.isUserRegistered(username)) {
-  //     request.setAttribute("error", "That username was not found.");
-  //     request.getRequestDispatcher("/WEB-INF/view/profilepage.jsp").forward(request, response);
-  //     return;
-  //   }
-
-  //   User user = userStore.getUser(username);
-
-  //   if (!BCrypt.checkpw(password, user.getPasswordHash())) {
-  //     request.setAttribute("error", "Please enter a correct password.");
-  //     request.getRequestDispatcher("/WEB-INF/view/profilepage.jsp").forward(request, response);
-  //     return;
-  //   }
-
-  //   request.getSession().setAttribute("user", username);
-  //   response.sendRedirect("/profilepage");
-  // }
 }
