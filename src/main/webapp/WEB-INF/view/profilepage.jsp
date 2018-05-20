@@ -13,6 +13,11 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 --%>
+<%@ page import="java.util.List" %>
+<%@ page import="codeu.model.data.Conversation" %>
+<%@ page import="codeu.model.data.Message" %>
+<%@ page import="codeu.model.data.User" %>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -55,7 +60,7 @@
             <% } else{ %>
               <%= request.getSession().getAttribute("message") %>
             <% } %>
-          <br>
+          <hr/><br>
           <h4>Edit Your About Me (only you can see this)</h4>
           <!--<form action="/profilepage" method="POST">
           </form>-->
@@ -66,9 +71,37 @@
             <% } else{ %>
               <input type="submit">
             <% } %>
-          </form><br>
-          <h4><%= request.getSession().getAttribute("user") %>'s Sent Messages</h4>
-          Here will be the sent messages
+          </form><hr/><br>
+          <h4><%= request.getSession().getAttribute("user") %>'s Conversations</h4>
+          <div id="container">
+
+            <%
+            List<Conversation> conversations =
+              (List<Conversation>) request.getAttribute("conversations");
+            if(conversations == null || conversations.isEmpty()){
+            %>
+              <p>There are no active conversations at the moment.</p>
+            <%
+            }
+            else{
+            %>
+                <div id="chat">
+                <ul class="chat">
+                <%
+                  for(Conversation conversation : conversations){
+                %>
+                  <li><strong>Conversation:</strong> <a href="/chat/<%= conversation.getTitle() %>">
+                    <%= conversation.getTitle() %></a></li>
+                <%
+                  }
+                %>
+                </ul>
+                </div>
+            <%
+              }
+            %>
+            <hr/>
+          </div>
         </p>
       <% } %>
     </div>
