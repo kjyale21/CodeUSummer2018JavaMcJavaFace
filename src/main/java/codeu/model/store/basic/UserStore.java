@@ -94,12 +94,13 @@ public class UserStore {
     return users.get(id);
   }
   
- /** Returns the amount of existing Messages */
+ /** Returns the most recent user to create an account. */
   public String getNewestUser() {
 	  List<User> all = new ArrayList<>(users.values());
 	  return all.get(0).getName();
   }
   
+ /** Returns the number of existing users. */
   public int getAmountUsers() {
 	  List<User> all = new ArrayList<>(users.values());
 	  return all.size();
