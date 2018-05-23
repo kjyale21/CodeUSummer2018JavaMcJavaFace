@@ -86,7 +86,7 @@ public class MessageStore {
     return messagesInConversation;
   }
   
-  /** amount of messages*/
+  /** Returns the amount of existing Messages */
   public int getAmountMessages() {
 	  return messages.size();
   }
