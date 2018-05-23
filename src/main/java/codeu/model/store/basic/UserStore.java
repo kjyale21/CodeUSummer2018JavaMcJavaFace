@@ -94,7 +94,7 @@ public class UserStore {
     return users.get(id);
   }
   
- /** amount of users */
+ /** Returns the amount of existing Messages */
   public String getNewestUser() {
 	  List<User> all = new ArrayList<>(users.values());
 	  return all.get(0).getName();
