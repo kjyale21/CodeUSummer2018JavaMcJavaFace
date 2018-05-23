@@ -90,7 +90,8 @@ public class MessageStore {
   public int getAmountMessages() {
 	  return messages.size();
   }
-  
+ 
+  /** Returns the most recent message written. */
   public String getNewestMessage() {
 	  return messages.get(0).getContent();
   }
