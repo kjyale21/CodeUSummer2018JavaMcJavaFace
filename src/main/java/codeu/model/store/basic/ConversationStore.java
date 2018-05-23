@@ -95,7 +95,7 @@ public class ConversationStore {
     return getConversationWithID(id);
   }
   
-  /** amount of conversations*/
+  /** Returns the number of existing conversations.*/
   public int getAmountConversations() {
 	  List<Conversation> all = new ArrayList<>(conversations.values());
 	  return all.size();
