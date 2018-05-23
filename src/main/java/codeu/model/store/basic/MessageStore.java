@@ -50,7 +50,6 @@ public class MessageStore {
     return new MessageStore(persistentStorageAgent);
   }
   
-
   /**
    * The PersistentStorageAgent responsible for loading Messages from and saving Messages to
    * Datastore.
