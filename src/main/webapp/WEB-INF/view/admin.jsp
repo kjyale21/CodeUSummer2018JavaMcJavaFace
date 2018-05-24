@@ -67,7 +67,7 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
   <li><b>Users: </b> <%= UserStore.getInstance().getAmountUsers() %> </li> 
   <li><b>Conversations:</b> <%= ConversationStore.getInstance().getAmountConversations() %> </li> 
   <li><b>Messages: </b> <%= MessageStore.getInstance().getAmountMessages() %> </li>
-  <li><b>Newest User: <%= UserStore.getInstance().getNewestUser() %> </b></li> 
+  <li><b>Newest User(s): <%= UserStore.getInstance().getNewestUser() %> </b></li> 
 </ul>
     </div>
   </div>
