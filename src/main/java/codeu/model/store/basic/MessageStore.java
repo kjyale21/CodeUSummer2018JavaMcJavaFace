@@ -50,7 +50,6 @@ public class MessageStore {
     return new MessageStore(persistentStorageAgent);
   }
   
-
   /**
    * The PersistentStorageAgent responsible for loading Messages from and saving Messages to
    * Datastore.
@@ -86,11 +85,12 @@ public class MessageStore {
     return messagesInConversation;
   }
   
-  /** amount of messages*/
+  /** Returns the amount of existing Messages */
   public int getAmountMessages() {
 	  return messages.size();
   }
-  
+ 
+  /** Returns the most recent message written. */
   public String getNewestMessage() {
 	  return messages.get(0).getContent();
   }
