@@ -13,6 +13,17 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 --%>
+
+<%@ page import="java.util.List" %>
+<%@ page import="codeu.model.data.Conversation" %>
+<%@ page import="codeu.model.data.Message" %>
+<%@ page import="codeu.model.store.basic.UserStore" %>
+<%@ page import="codeu.model.store.basic.MessageStore" %>
+<%@ page import="codeu.model.store.basic.ConversationStore" %>
+<%
+Conversation conversation = (Conversation) request.getAttribute("conversation");
+List<Message> messages = (List<Message>) request.getAttribute("messages");
+%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -51,6 +62,13 @@
       <p>
         Here is where administrators can see statistics and data about the application.
       </p>
+      <ul>
+     
+  <li><b>Users: </b> <%= UserStore.getInstance().getAmountUsers() %> </li> 
+  <li><b>Conversations:</b> <%= ConversationStore.getInstance().getAmountConversations() %> </li> 
+  <li><b>Messages: </b> <%= MessageStore.getInstance().getAmountMessages() %> </li>
+  <li><b>Newest User(s): <%= UserStore.getInstance().getNewestUser() %> </b></li> 
+</ul>
     </div>
   </div>
 </body>

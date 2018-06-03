@@ -51,6 +51,7 @@ public class ConversationStore {
     return new ConversationStore(persistentStorageAgent);
   }
 
+  
   /**
    * The PersistentStorageAgent responsible for loading Conversations from and saving Conversations
    * to Datastore.
@@ -93,6 +94,13 @@ public class ConversationStore {
     UUID id = ids.get(title);
     return getConversationWithID(id);
   }
+  
+  /** Returns the number of existing conversations.*/
+  public int getAmountConversations() {
+	  List<Conversation> all = new ArrayList<>(conversations.values());
+	  return all.size();
+  }
+
 
   /** Find and return the Conversation with the given id. */
   private Conversation getConversationWithID(UUID id) {
