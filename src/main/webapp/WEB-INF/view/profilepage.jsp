@@ -44,6 +44,12 @@
        <a href="/profilepage">Profile</a>
     <% } else{ %>
       <h1></h1>
+      <h1></h1>
+      <% } %>
+    <% if(request.getSession().getAttribute("user") != null){ %>
+       <a href="/logout">Logout</a>
+    <% } else{ %>
+      <h1></h1>
       <% } %>
   </nav>
   <div id="container">
