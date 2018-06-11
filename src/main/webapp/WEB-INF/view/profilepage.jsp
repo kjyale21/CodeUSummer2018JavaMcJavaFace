@@ -75,22 +75,36 @@
           <h4><%= request.getSession().getAttribute("user") %>'s Conversations</h4>
           <div>
             <% List<Conversation> conversations = (List<Conversation>) request.getAttribute("conversations");
-            if(conversations == null || conversations.isEmpty()){ %>
-              <p>There are no active conversations at the moment.</p>
+            if (conversations == null || conversations.isEmpty()) { %>
+              <p>There are no convos.</p>
             <% } else { %>
-                <div>
+              <div>
                 <ul id="conversations" class="chat">
-                <% for(Conversation conversation : conversations) { %>
-                  <li><strong>Conversation:</strong> <a href="/chat/<%= conversation.getTitle() %>">
-                    <%= conversation.getTitle() %></a></li>
-                <% } %>
+                  <% for (Conversation conversation : conversations) { %>
+                    <li><strong>Conversation:</strong> <a href="/chat/<%= conversation.getTitle() %>">
+                      <%= conversation.getTitle() %></a></li>
+                  <% } %>
                 </ul>
-                </div>
+              </div>
             <% } %>
             <hr/>
           </div>
         </p>
-      <% } %>
+        <% } %>
+          <!--<div>
+            <% List<Message> messages = (List<Message>) request.getAttribute("messages");
+            if (messages == null || messages.isEmpty()) { %>
+              There are no sent messages.
+            <% } else { %>
+              <div>
+                <ul>
+                  <% for (Message message : messages) { %>
+                    <li><strong><%= message.getCreationTime() %>:</strong> <%= message.getContent()%></li>
+                  <% } %>
+                </ul>
+              </div>
+            <% } %>
+          </div>-->
     </div>
   </div>
 </body>
