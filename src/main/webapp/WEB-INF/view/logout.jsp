@@ -49,6 +49,8 @@
   <div id="container">
     <div
       style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px;">
+      You have successfully logged out!
+      Click <a href="/login">here</a> to log back in.
     </div>
   </div>
 </body>
