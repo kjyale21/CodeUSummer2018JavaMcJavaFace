@@ -49,6 +49,7 @@
 
       <h1>CodeU Chat App</h1>
       <h2>Welcome from Team 27, javaMcJavaFace!</h2>
+	  <h3>Enjoy!</h3>
 
       <ul>
         <li><a href="/login">Login</a> to get started.</li>

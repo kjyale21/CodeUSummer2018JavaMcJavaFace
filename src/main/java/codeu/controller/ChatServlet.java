@@ -32,6 +32,8 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import org.jsoup.Jsoup;
 import org.jsoup.safety.Whitelist;
+import org.kefirsf.bb.BBProcessorFactory;
+import org.kefirsf.bb.TextProcesser;
 
 /** Servlet class responsible for the chat page. */
 public class ChatServlet extends HttpServlet {
@@ -47,6 +49,9 @@ public class ChatServlet extends HttpServlet {
 
   /** Store class that gives access to Activities. */
   private ActivityStore activityStore;
+  
+  /** Store Text Processors that give access to parsing BBCode */ 
+  private TextProcessor textProcessor
 
   /** Set up state for handling chat requests. */
   @Override
@@ -56,6 +61,7 @@ public class ChatServlet extends HttpServlet {
     setMessageStore(MessageStore.getInstance());
     setUserStore(UserStore.getInstance());
     setActivityStore(ActivityStore.getInstance());
+    setTextprocessor(BBProcessorFactory.getInstance().create());
   }
 
   /**
@@ -88,6 +94,14 @@ public class ChatServlet extends HttpServlet {
    */
   void setActivityStore(ActivityStore activityStore) {
     this.activityStore = activityStore;
+  }
+
+ /**
+   * Sets the TextProcessor used by this servlet. This function provides a common setup method for
+   * use by the test framework or the servlet's init() function.
+   */
+  void setTextProcessor(TextProcessor textProcessor) {
+    this.textProcessor = textProcessor;
   }
 
   /**
@@ -157,6 +171,10 @@ public class ChatServlet extends HttpServlet {
     // this removes any HTML from the message content
     String cleanedMessageContent = Jsoup.clean(messageContent, Whitelist.none());
 
+    // this parses BBCode tags to HTML tags
+    messageContent = textProcessor.process(messageContent);
+    
+    
     Message message =
         new Message(
             UUID.randomUUID(),
