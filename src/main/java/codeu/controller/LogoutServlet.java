@@ -34,7 +34,7 @@ import javax.servlet.http.HttpServletResponse;
 import org.mindrot.jbcrypt.BCrypt;
 
 /** Servlet class responsible for the profile page. */
-public class ProfilePageServlet extends HttpServlet {
+public class LogoutServlet extends HttpServlet {
 
   /** Store class that gives access to Users. */
   private UserStore userStore;
@@ -82,24 +82,13 @@ public class ProfilePageServlet extends HttpServlet {
   }
 
   /**
-     * This function fires when a user navigates to the profile page.
-     * It displays every active conversation of the current user.
-     * It then forwards to profilepage.jsp for rendering.
-     */
-    @Override
-    public void doGet(HttpServletRequest request, HttpServletResponse response)
-            throws IOException, ServletException {
-        List<Conversation> conversationList = conversationStore.getAllConversations();
-        List<User> userList = userStore.getAllUsers();
-        HashMap<Conversation, List<Message>> conversationToMessageList = new HashMap<>();
-        for (Conversation conversation : conversationList) {
-            List<Message> messages = messageStore.getMessagesInConversation(conversation.getId());
-            conversationToMessageList.put(conversation, messages);
-        }
-
-        request.setAttribute("users", userList);
-        request.setAttribute("conversations", conversationList);
-        request.setAttribute("conversationToMessageList", conversationToMessageList);
-        request.getRequestDispatcher("/WEB-INF/view/profilepage.jsp").forward(request, response);
-    }
+   * This function fires when a user requests the /login URL. It simply forwards the request to
+   * login.jsp.
+   */
+  @Override
+  public void doGet(HttpServletRequest request, HttpServletResponse response)
+      throws IOException, ServletException {
+    request.getSession().setAttribute("user", null);
+    request.getRequestDispatcher("/WEB-INF/view/logout.jsp").forward(request, response);
+  }
 }

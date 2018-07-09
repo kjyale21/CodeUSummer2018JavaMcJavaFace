@@ -13,25 +13,13 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 --%>
-
-<%@ page import="java.util.List" %>
-<%@ page import="codeu.model.data.Conversation" %>
-<%@ page import="codeu.model.data.Message" %>
-<%@ page import="codeu.model.store.basic.UserStore" %>
-<%@ page import="codeu.model.store.basic.MessageStore" %>
-<%@ page import="codeu.model.store.basic.ConversationStore" %>
-<%
-Conversation conversation = (Conversation) request.getAttribute("conversation");
-List<Message> messages = (List<Message>) request.getAttribute("messages");
-%>
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Admin Page</title>
+  <title>Logout</title>
   <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-
   <nav>
     <a id="navTitle" href="/">CodeU Chat App</a>
     <a href="/conversations">Conversations</a>
@@ -58,25 +46,12 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
       <h1></h1>
       <% } %>
   </nav>
-
   <div id="container">
     <div
       style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px;">
-
-      <h1>Behind the scenes of the chat app.</h1>
-      <p>
-        Here is where administrators can see statistics and data about the application.
-      </p>
-      <ul>
-     
-  <li><b>Users: </b> <%= UserStore.getInstance().getAmountUsers() %> </li> 
-  <li><b>Conversations:</b> <%= ConversationStore.getInstance().getAmountConversations() %> </li> 
-  <li><b>Messages: </b> <%= MessageStore.getInstance().getAmountMessages() %> </li>
-  <li><b>Newest User(s): <%= UserStore.getInstance().getNewestUser() %> </b></li> 
-</ul>
+      You have successfully logged out!
+      Click <a href="/login">here</a> to log back in.
     </div>
   </div>
 </body>
 </html>
-
-
