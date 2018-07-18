@@ -37,8 +37,8 @@
     }
     .profile label {
       display: inline-block;
-      width: 10%;
-      padding: 1em;
+      width: 12%;
+      padding: 1%;
     }
     label > img {
       position: relative;
@@ -97,6 +97,14 @@
           <label>
             <input type="radio" name="fb" value="https://avatars1.githubusercontent.com/u/6096171?s=88&v=4" />
             <img src="https://avatars1.githubusercontent.com/u/6096171?s=88&v=4">
+          </label>
+          <label>
+            <input type="radio" name="fb" value="https://avatars3.githubusercontent.com/u/21346180?s=460&v=4" />
+            <img src="https://avatars3.githubusercontent.com/u/21346180?s=460&v=4">
+          </label>
+          <label>
+            <input type="radio" name="fb" value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcGaofOpzAuWowWCucje7gKQ1P4Z40dlZGKNuadOqPif-9UhAlLA" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcGaofOpzAuWowWCucje7gKQ1P4Z40dlZGKNuadOqPif-9UhAlLA">
           </label>
         </div>
         <h1><%= request.getSession().getAttribute("user") %>'s Profile Page</h1>
