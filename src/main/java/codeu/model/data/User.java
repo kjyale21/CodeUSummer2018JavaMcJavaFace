@@ -23,6 +23,7 @@ public class User {
   private final String name;
   private final String passwordHash;
   private final Instant creation;
+  // private final String linkForProfilePic;
 
   /**
    * Constructs a new User.
@@ -39,6 +40,14 @@ public class User {
     this.creation = creation;
   }
 
+  // public User(UUID id, String name, String passwordHash, Instant creation, String linkForProfilePic) {
+  //   this.id = id;
+  //   this.name = name;
+  //   this.passwordHash = passwordHash;
+  //   this.creation = creation;
+  //   this.linkForProfilePic = linkForProfilePic;
+  // }
+
   /** Returns the ID of this User. */
   public UUID getId() {
     return id;
@@ -48,7 +57,7 @@ public class User {
   public String getName() {
     return name;
   }
-  
+
   /** Returns the password hash of this User. */
   public String getPasswordHash() {
     return passwordHash;
@@ -58,4 +67,8 @@ public class User {
   public Instant getCreationTime() {
     return creation;
   }
+
+  // public String getLinkForProfilePic() {
+  //   return linkForProfilePic;
+  // }
 }

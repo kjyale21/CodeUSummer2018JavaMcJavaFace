@@ -23,6 +23,28 @@
 <head>
   <title>Profile Page</title>
   <link rel="stylesheet" href="/css/main.css">
+  <style>
+    label > input{ /* HIDE RADIO */
+      visibility: hidden; /* Makes input not-clickable */
+      position: absolute; /* Remove input from document flow */
+    }
+    label > input + img{ /* IMAGE STYLES */
+      cursor:pointer;
+      border:2px solid transparent;
+    }
+    label > input:checked + img { /* (RADIO CHECKED) IMAGE STYLES */
+      border:2px solid #f00;
+    }
+    .profile label {
+      display: inline-block;
+      width: 10%;
+      padding: 1em;
+    }
+    label > img {
+      position: relative;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
   <nav>
@@ -58,6 +80,25 @@
       <% if(request.getSession().getAttribute("user") == null){ %>
         Please <a href="/login">login</a> to see your profile page!
       <% } else{ %>
+        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt="placeholder for profile picture" style="border-radius: 100%; display: block;">
+        <div class="profile">
+          <label>
+            <input type="radio" name="fb" value="https://avatars0.githubusercontent.com/u/5882787?s=460&v=4" />
+            <img src="https://avatars0.githubusercontent.com/u/5882787?s=460&v=4" >
+          </label>
+          <label>
+            <input type="radio" name="fb" value="https://avatars0.githubusercontent.com/u/3112455?s=460&v=4" />
+            <img src="https://avatars0.githubusercontent.com/u/3112455?s=460&v=4">
+          </label>
+          <label>
+            <input type="radio" name="fb" value="https://avatars1.githubusercontent.com/u/6338799?s=460&v=4" />
+            <img src="https://avatars1.githubusercontent.com/u/6338799?s=460&v=4">
+          </label>
+          <label>
+            <input type="radio" name="fb" value="https://avatars1.githubusercontent.com/u/6096171?s=88&v=4" />
+            <img src="https://avatars1.githubusercontent.com/u/6096171?s=88&v=4">
+          </label>
+        </div>
         <h1><%= request.getSession().getAttribute("user") %>'s Profile Page</h1>
         <p>
           <h4>About <%= request.getSession().getAttribute("user") %></h4>
