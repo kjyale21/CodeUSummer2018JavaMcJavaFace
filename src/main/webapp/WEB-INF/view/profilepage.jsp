@@ -109,11 +109,17 @@
         </div>
         <h1><%= request.getSession().getAttribute("user") %>'s Profile Page</h1>
         <p>
+          <h4>Status</h4>
+            <form action="">
+              <input type="radio" name="status" value="available"> Available <br>
+              <input type="radio" name="status" value="busy"> Busy <br>
+              <input type="radio" name="status" value="away"> Away
+            </form>
           <h4>About <%= request.getSession().getAttribute("user") %></h4>
-            <% if (request.getSession().getAttribute("message") == null) { %>
+            <% if (request.getParameter("message")  == null) { %>
               Write a bio below!
             <% } else{ %>
-              <%= request.getSession().getAttribute("message") %>
+              <%= request.getParameter("message")  %>
             <% } %>
           <hr/><br>
           <h4>Edit Your About Me (only you can see this)</h4>
@@ -121,11 +127,8 @@
           </form>-->
           <form action="/profilepage">
             <textarea name="message" rows="7" cols="100"></textarea>
-            <% if (request.getSession().getAttribute("message") != null) { %>
+
               <input type="submit">
-            <% } else{ %>
-              <input type="submit">
-            <% } %>
           </form><hr/><br>
           <h4><%= request.getSession().getAttribute("user") %>'s Conversations</h4>
           <div>
