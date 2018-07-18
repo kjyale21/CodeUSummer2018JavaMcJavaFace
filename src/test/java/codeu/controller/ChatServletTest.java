@@ -37,7 +37,6 @@ import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Mockito;
-import org.kefirsf.bb.TextProcessor;
 
 public class ChatServletTest {
 
@@ -50,7 +49,6 @@ public class ChatServletTest {
   private MessageStore mockMessageStore;
   private UserStore mockUserStore;
   private ActivityStore mockActivityStore;
-  private TextProcessor mockTextProcessor;
 
   @Before
   public void setup() {
@@ -76,9 +74,7 @@ public class ChatServletTest {
 
     mockActivityStore = Mockito.mock(ActivityStore.class);
     chatServlet.setActivityStore(mockActivityStore);
-    
-    mockTextProcessor = Mockito.mock(TextProcessor.class);
-+    chatServlet.setTextProcessor(mockTextProcessor);
+  }
 
   @Test
   public void testDoGet() throws IOException, ServletException {
@@ -181,9 +177,7 @@ public class ChatServletTest {
         .thenReturn(fakeConversation);
 
     Mockito.when(mockRequest.getParameter("message")).thenReturn("Test message.");
-    
-    Mockito.when(mockTextProcessor.process("Test message.")).thenReturn("Test message.");
-    
+
     chatServlet.doPost(mockRequest, mockResponse);
 
     ArgumentCaptor<Message> messageArgumentCaptor = ArgumentCaptor.forClass(Message.class);
@@ -213,44 +207,13 @@ public class ChatServletTest {
 
     Mockito.when(mockRequest.getParameter("message"))
         .thenReturn("Contains <b>html</b> and <script>JavaScript</script> content.");
-        
+
     chatServlet.doPost(mockRequest, mockResponse);
 
     ArgumentCaptor<Message> messageArgumentCaptor = ArgumentCaptor.forClass(Message.class);
     Mockito.verify(mockMessageStore).addMessage(messageArgumentCaptor.capture());
     Assert.assertEquals(
         "Contains html and  content.", messageArgumentCaptor.getValue().getContent());
-
-    Mockito.verify(mockResponse).sendRedirect("/chat/test_conversation");
-  }
-  
-   @Test
- public void testDoPost_ParsesBBCode() throws IOException, ServletException {
-    Mockito.when(mockRequest.getRequestURI()).thenReturn("/chat/test_conversation");
-    Mockito.when(mockSession.getAttribute("user")).thenReturn("test_username");
-
-    User fakeUser =
-        new User(
-            UUID.randomUUID(),
-            "test_username",
-            "$2a$10$eDhncK/4cNH2KE.Y51AWpeL8/5znNBQLuAFlyJpSYNODR/SJQ/Fg6",
-            Instant.now());
-    Mockito.when(mockUserStore.getUser("test_username")).thenReturn(fakeUser);
-
-    Conversation fakeConversation =
-        new Conversation(UUID.randomUUID(), UUID.randomUUID(), "test_conversation", Instant.now());
-    Mockito.when(mockConversationStore.getConversationWithTitle("test_conversation"))
-        .thenReturn(fakeConversation);
-
-    Mockito.when(mockRequest.getParameter("message"))
-        .thenReturn("Contains [b]html[/b], [i]tags[/i],[s]strikethrough text[/s], and <script>JavaScript</script> content.");
-
-    chatServlet.doPost(mockRequest, mockResponse);
-
-    ArgumentCaptor<Message> messageArgumentCaptor = ArgumentCaptor.forClass(Message.class);
-    Mockito.verify(mockMessageStore).addMessage(messageArgumentCaptor.capture());
-    Assert.assertEquals(
-        "Contains <b>html</b>, <i>tag</i>, <s>strikethrough text</s>, and  content.", messageArgumentCaptor.getValue().getContent());
 
     Mockito.verify(mockResponse).sendRedirect("/chat/test_conversation");
   }
