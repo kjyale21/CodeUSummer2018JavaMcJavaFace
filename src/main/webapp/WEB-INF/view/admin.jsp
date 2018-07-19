@@ -53,7 +53,7 @@
       style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px;">
 
       <h1 style="font-variant: small-caps;">Behind the scenes of the chat app.</h1>
-      <p>
+      <p style="font-family: Verdana, sans-serif;">
         Here is where administrators can see statistics and data about the application.
       </p>
     </div>

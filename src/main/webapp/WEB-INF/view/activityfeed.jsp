@@ -64,7 +64,7 @@
   <div id="container">
 
       <h1 style="font-variant: small-caps;">Activity Feed</h1>
-      <h3>Here's some highlights from what's happening on the site:</h3>
+      <h3 style="font-family: Verdana, sans-serif;">Here's some highlights from what's happening on the site:</h3>
 
       <hr/>
       <%
@@ -72,12 +72,12 @@
         (List<Conversation>) request.getAttribute("conversations");
       if(conversations == null || conversations.isEmpty()){
       %>
-        <p>There are no active conversations at the moment.</p>
+        <p style="font-family: Verdana, sans-serif;">There are no active conversations at the moment.</p>
       <%
       }
       else{
       %>
-          <div id="chat">
+          <div id="chat" style="font-family: Verdana, sans-serif;">
           <ul class="chat">
           <%
             for(Conversation conversation : conversations){

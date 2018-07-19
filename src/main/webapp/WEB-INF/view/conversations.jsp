@@ -60,7 +60,7 @@
     <% if(request.getSession().getAttribute("user") != null){ %>
       <h1 style="font-variant: small-caps;">New Conversation</h1>
       <form action="/conversations" method="POST">
-          <div class="form-group">
+          <div class="form-group" style="font-family: Verdana, sans-serif;">
             <label class="form-control-label">Title:</label>
           <input type="text" name="conversationTitle">
         </div>
@@ -83,7 +83,7 @@
     }
     else{
     %>
-      <ul class="mdl-list">
+      <ul class="mdl-list" style="font-family: Verdana, sans-serif;">
     <%
       for(Conversation conversation : conversations){
     %>
