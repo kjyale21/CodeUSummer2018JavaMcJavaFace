@@ -50,9 +50,9 @@
 
   <div id="container">
     <div
-      style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px;">
+      style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px; font-family: Verdana, sans-serif;">
 
-      <h1>About the CodeU Chat App</h1>
+      <h1 style="font-variant: small-caps;">About the CodeU Chat App</h1>
       <p>
         This is an example chat application designed to be a starting point
         for your CodeU project team work. Here's some stuff to think about:
@@ -81,7 +81,7 @@
         you've added.
       </p>
 
-      <h1>About the Team</h1>
+      <h1 style="font-variant: small-caps;">About the Team</h1>
       <p>We are Team 27! In other words javaMcJavaFace. Here's a little info about each one of us:
       </p>
       <ul>
