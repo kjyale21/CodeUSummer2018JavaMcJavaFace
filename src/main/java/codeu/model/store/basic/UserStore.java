@@ -117,6 +117,7 @@ public class UserStore {
     users.put(user.getId(), user);
 
     persistentStorageAgent.writeThrough(user);
+    System.out.println("userstore print" + user.getAbout());
   }
 
   /** Return true if the given username is known to the application. */

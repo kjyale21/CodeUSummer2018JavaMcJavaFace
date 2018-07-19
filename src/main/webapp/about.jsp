@@ -21,8 +21,8 @@
 </head>
 <body>
 
-  <nav>
-    <a id="navTitle" href="/">CodeU Chat App</a>
+  <nav style="background-color:#67AAF9; font-family: sans-serif; font-variant:small-caps;">
+    <a id="navTitle" href="/" style="font-family: sans-serif; font-variant:small-caps;">CodeU Chat App</a>
     <a href="/conversations">Conversations</a>
     <% if(request.getSession().getAttribute("user") != null){ %>
       <a>Hello <%= request.getSession().getAttribute("user") %>!</a>

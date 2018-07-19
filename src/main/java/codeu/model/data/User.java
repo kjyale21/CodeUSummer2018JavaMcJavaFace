@@ -23,8 +23,8 @@ public class User {
   private final String name;
   private final String passwordHash;
   private final Instant creation;
-  private final String about;
-  private final String status;
+  private String about;
+  private String status;
 
   /**
    * Constructs a new User.
@@ -39,17 +39,18 @@ public class User {
     this.name = name;
     this.passwordHash = passwordHash;
     this.creation = creation;
-    this.about = "";
-    this.status = "Available";
+    this.about = null;
+    this.status = null;
   }
 
-  // public User(UUID id, String name, String passwordHash, Instant creation, String linkForProfilePic) {
-  //   this.id = id;
-  //   this.name = name;
-  //   this.passwordHash = passwordHash;
-  //   this.creation = creation;
-  //   this.linkForProfilePic = linkForProfilePic;
-  // }
+  public User(UUID id, String name, String passwordHash, Instant creation, String about, String status) {
+    this.id = id;
+    this.name = name;
+    this.passwordHash = passwordHash;
+    this.creation = creation;
+    this.about = about;
+    this.status = status;
+  }
 
   /** Returns the ID of this User. */
   public UUID getId() {
@@ -80,4 +81,13 @@ public class User {
   public String getStatus() {
     return status;
   }
+
+  public void setStatus(String status) {
+    this.status = status;
+  }
+
+  public void setAbout(String about) {
+    this.about = about;
+  }
 }
+

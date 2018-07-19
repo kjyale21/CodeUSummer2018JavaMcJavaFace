@@ -47,7 +47,7 @@
   </style>
 </head>
 <body>
-  <nav>
+  <nav style="background-color:#67AAF9; font-family: sans-serif; font-variant:small-caps;">
     <a id="navTitle" href="/">CodeU Chat App</a>
     <a href="/conversations">Conversations</a>
     <% if(request.getSession().getAttribute("user") != null){ %>
@@ -116,10 +116,10 @@
               <input type="radio" name="status" value="away"> Away
             </form>
           <h4>About <%= request.getSession().getAttribute("user") %></h4>
-            <% if (request.getParameter("message")  == null) { %>
+            <% if (request.getAttribute("message")  == null) { %>
               Write a bio below!
             <% } else{ %>
-              <%= request.getParameter("message")  %>
+              <%= request.getAttribute("message")  %>
             <% } %>
           <hr/><br>
           <h4>Edit Your About Me (only you can see this)</h4>
