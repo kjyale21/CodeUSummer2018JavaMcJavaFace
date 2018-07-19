@@ -34,7 +34,7 @@
   </nav>
 
   <div id="container">
-    <h1>Login</h1>
+    <h1 style="font-variant: small-caps;">Login</h1>
 
     <% if(request.getAttribute("error") != null){ %>
         <h2 style="color:red"><%= request.getAttribute("error") %></h2>

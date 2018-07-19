@@ -107,22 +107,22 @@
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcGaofOpzAuWowWCucje7gKQ1P4Z40dlZGKNuadOqPif-9UhAlLA">
           </label>
         </div>
-        <h1><%= request.getSession().getAttribute("user") %>'s Profile Page</h1>
+        <h1 style="font-variant: small-caps;"><%= request.getSession().getAttribute("user") %>'s Profile Page</h1>
         <p>
-          <h4>Status</h4>
+          <h4 style="font-variant: small-caps;" >Status</h4>
             <form action="">
               <input type="radio" name="status" value="available"> Available <br>
               <input type="radio" name="status" value="busy"> Busy <br>
               <input type="radio" name="status" value="away"> Away
             </form>
-          <h4>About <%= request.getSession().getAttribute("user") %></h4>
+          <h4 style="font-variant: small-caps;">About <%= request.getSession().getAttribute("user") %></h4>
             <% if (request.getAttribute("message")  == null) { %>
               Write a bio below!
             <% } else{ %>
               <%= request.getAttribute("message")  %>
             <% } %>
           <hr/><br>
-          <h4>Edit Your About Me (only you can see this)</h4>
+          <h4 style="font-variant: small-caps;">Edit Your About Me (only you can see this)</h4>
           <!--<form action="/profilepage" method="POST">
           </form>-->
           <form action="/profilepage">
@@ -130,7 +130,7 @@
 
               <input type="submit">
           </form><hr/><br>
-          <h4><%= request.getSession().getAttribute("user") %>'s Conversations</h4>
+          <h4 style="font-variant: small-caps;"><%= request.getSession().getAttribute("user") %>'s Conversations</h4>
           <div>
             <% List<Conversation> conversations = (List<Conversation>) request.getAttribute("conversations");
             if (conversations == null || conversations.isEmpty()) { %>

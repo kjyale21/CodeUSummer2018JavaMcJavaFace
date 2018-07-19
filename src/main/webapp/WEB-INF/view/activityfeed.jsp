@@ -63,7 +63,7 @@
 
   <div id="container">
 
-      <h1>Activity Feed</h1>
+      <h1 style="font-variant: small-caps;">Activity Feed</h1>
       <h3>Here's some highlights from what's happening on the site:</h3>
 
       <hr/>

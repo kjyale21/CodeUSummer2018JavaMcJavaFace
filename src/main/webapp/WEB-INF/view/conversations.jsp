@@ -58,7 +58,7 @@
     <% } %>
 
     <% if(request.getSession().getAttribute("user") != null){ %>
-      <h1>New Conversation</h1>
+      <h1 style="font-variant: small-caps;">New Conversation</h1>
       <form action="/conversations" method="POST">
           <div class="form-group">
             <label class="form-control-label">Title:</label>
@@ -71,7 +71,7 @@
       <hr/>
     <% } %>
 
-    <h1>Conversations</h1>
+    <h1 style="font-variant: small-caps;">Conversations</h1>
 
     <%
     List<Conversation> conversations =
