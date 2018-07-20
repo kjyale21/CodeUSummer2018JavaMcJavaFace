@@ -48,7 +48,7 @@
   </nav>
   <div id="container">
     <div
-      style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px;">
+      style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px; font-family: Verdana, sans-serif;">
       You have successfully logged out!
       Click <a href="/login">here</a> to log back in.
     </div>

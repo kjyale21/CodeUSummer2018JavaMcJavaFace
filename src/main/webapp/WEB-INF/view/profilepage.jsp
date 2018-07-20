@@ -110,7 +110,7 @@
         <h1 style="font-variant: small-caps;"><%= request.getSession().getAttribute("user") %>'s Profile Page</h1>
         <p>
           <h4 style="font-variant: small-caps;" >Status</h4>
-            <form action="">
+            <form action="" style="font-family: Verdana, sans-serif;">
               <input type="radio" name="status" value="available"> Available <br>
               <input type="radio" name="status" value="busy"> Busy <br>
               <input type="radio" name="status" value="away"> Away
@@ -137,7 +137,7 @@
               <p>There are no convos.</p>
             <% } else { %>
               <div>
-                <ul id="conversations" class="chat">
+                <ul id="conversations" class="chat" style="font-family: Verdana, sans-serif;">
                   <% for (Conversation conversation : conversations) { %>
                     <li><strong>Conversation:</strong> <a href="/chat/<%= conversation.getTitle() %>">
                       <%= conversation.getTitle() %></a></li>

@@ -40,7 +40,7 @@
         <h2 style="color:red"><%= request.getAttribute("error") %></h2>
     <% } %>
 
-    <form action="/login" method="POST">
+    <form action="/login" method="POST" style="font-family: Verdana, sans-serif;">
       <label for="username">Username: </label>
       <br/>
       <input type="text" name="username" id="username">
@@ -52,7 +52,7 @@
       <button type="submit">Login</button>
     </form>
 
-    <p>New users can register <a href="/register">here</a>.</p>
+    <p style="font-family: Verdana, sans-serif;">New users can register <a href="/register">here</a>.</p>
   </div>
 </body>
 </html>
