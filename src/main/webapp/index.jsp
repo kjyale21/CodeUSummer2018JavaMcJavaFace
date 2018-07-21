@@ -21,7 +21,7 @@
 </head>
 <body>
 
-  <nav>
+  <nav style="background-color:#67AAF9; font-family: sans-serif; font-variant:small-caps;">
     <a id="navTitle" href="/">CodeU Chat App</a>
     <a href="/conversations">Conversations</a>
     <% if(request.getSession().getAttribute("user") != null){ %>
@@ -52,10 +52,10 @@
     <div
       style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px;">
 
-      <h1>CodeU Chat App</h1>
-      <h2>Welcome from Team 27, javaMcJavaFace!</h2>
+      <h1 style="font-variant: small-caps;">CodeU Chat App</h1>
+      <h2 style="font-variant: small-caps;">Welcome from Team 27, javaMcJavaFace!</h2>
 
-      <ul>
+      <ul style="font-family: Verdana, sans-serif;">
         <li><a href="/login">Login</a> to get started.</li>
         <li>Go to the <a href="/conversations">conversations</a> page to
             create or join a conversation.</li>

@@ -24,7 +24,7 @@
 </head>
 <body>
 
-  <nav>
+  <nav style="background-color:#67AAF9; font-family: sans-serif; font-variant:small-caps;">
     <a id="navTitle" href="/">CodeU Chat App</a>
     <a href="/conversations">Conversations</a>
     <% if(request.getSession().getAttribute("user") != null){ %>
@@ -58,9 +58,9 @@
     <% } %>
 
     <% if(request.getSession().getAttribute("user") != null){ %>
-      <h1>New Conversation</h1>
+      <h1 style="font-variant: small-caps;">New Conversation</h1>
       <form action="/conversations" method="POST">
-          <div class="form-group">
+          <div class="form-group" style="font-family: Verdana, sans-serif;">
             <label class="form-control-label">Title:</label>
           <input type="text" name="conversationTitle">
         </div>
@@ -71,7 +71,7 @@
       <hr/>
     <% } %>
 
-    <h1>Conversations</h1>
+    <h1 style="font-variant: small-caps;">Conversations</h1>
 
     <%
     List<Conversation> conversations =
@@ -83,7 +83,7 @@
     }
     else{
     %>
-      <ul class="mdl-list">
+      <ul class="mdl-list" style="font-family: Verdana, sans-serif;">
     <%
       for(Conversation conversation : conversations){
     %>

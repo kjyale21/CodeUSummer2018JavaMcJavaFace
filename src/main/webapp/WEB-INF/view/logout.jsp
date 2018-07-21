@@ -20,7 +20,7 @@
   <link rel="stylesheet" href="/css/main.css">
 </head>
 <body>
-  <nav>
+  <nav style="background-color:#67AAF9; font-family: sans-serif; font-variant:small-caps;">
     <a id="navTitle" href="/">CodeU Chat App</a>
     <a href="/conversations">Conversations</a>
     <% if(request.getSession().getAttribute("user") != null){ %>
@@ -48,7 +48,7 @@
   </nav>
   <div id="container">
     <div
-      style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px;">
+      style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px; font-family: Verdana, sans-serif;">
       You have successfully logged out!
       Click <a href="/login">here</a> to log back in.
     </div>

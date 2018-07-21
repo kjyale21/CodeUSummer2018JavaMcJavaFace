@@ -38,7 +38,7 @@
 </head>
 <body>
 
-  <nav>
+  <nav style="background-color:#67AAF9; font-family: sans-serif; font-variant:small-caps;">
     <a id="navTitle" href="/">CodeU Chat App</a>
     <a href="/conversations">Conversations</a>
     <% if(request.getSession().getAttribute("user") != null){ %>
@@ -67,8 +67,8 @@
 
   <div id="container">
 
-      <h1>Activity Feed</h1>
-      <h3>Here's some highlights from what's happening on the site:</h3>
+      <h1 style="font-variant: small-caps;">Activity Feed</h1>
+      <h3 style="font-family: Verdana, sans-serif;">Here's some highlights from what's happening on the site:</h3>
 
       <hr/>
       <%
@@ -78,11 +78,11 @@
       if(activities == null || activities.isEmpty()){
 
       %>
-        <p>Nothing has happened so far.</p>
+        <p style="font-family: Verdana, sans-serif;">There are no active conversations at the moment.</p>
       <%
       } else {
       %>
-          <div id="chat">
+          <div id="chat" style="font-family: Verdana, sans-serif;">
           <ul class="chat">
           <%
             Collections.sort(activities, new Comparator<Activity>() {

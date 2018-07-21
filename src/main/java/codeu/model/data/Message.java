@@ -16,6 +16,7 @@ package codeu.model.data;
 
 import java.time.Instant;
 import java.util.UUID;
+import java.util.Set;
 
 /** Class representing a message. Messages are sent by a User in a Conversation. */
 public class Message {
@@ -25,6 +26,8 @@ public class Message {
   private final UUID author;
   private final String content;
   private final Instant creation;
+  private final Set<User> likes;
+  private final int numberOfLikes;
 
   /**
    * Constructs a new Message.
@@ -41,6 +44,8 @@ public class Message {
     this.author = author;
     this.content = content;
     this.creation = creation;
+    this.likes = null;
+    this.numberOfLikes = 0;
   }
 
   /** Returns the ID of this Message. */

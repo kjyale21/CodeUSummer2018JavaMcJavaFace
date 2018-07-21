@@ -32,7 +32,7 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
 </head>
 <body>
 
-  <nav>
+  <nav style="background-color:#67AAF9; font-family: sans-serif; font-variant:small-caps;">
     <a id="navTitle" href="/">CodeU Chat App</a>
     <a href="/conversations">Conversations</a>
     <% if(request.getSession().getAttribute("user") != null){ %>
@@ -63,8 +63,8 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
     <div
       style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px;">
 
-      <h1>Behind the scenes of the chat app.</h1>
-      <p>
+      <h1 style="font-variant: small-caps;">Behind the scenes of the chat app.</h1>
+      <p style="font-family: Verdana, sans-serif;">
         Here is where administrators can see statistics and data about the application.
       </p>
       <ul>
