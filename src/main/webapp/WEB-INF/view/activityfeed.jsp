@@ -14,9 +14,13 @@
   limitations under the License.
 --%>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Collections" %>
+<%@ page import="java.util.Comparator" %>
 <%@ page import="codeu.model.data.Conversation" %>
 <%@ page import="codeu.model.data.Message" %>
 <%@ page import="codeu.model.data.User" %>
+<%@ page import="codeu.model.store.basic.UserStore" %>
+<%@ page import="codeu.model.data.Activity" %>
 
 <!DOCTYPE html>
 <html>
@@ -68,24 +72,45 @@
 
       <hr/>
       <%
-      List<Conversation> conversations =
-        (List<Conversation>) request.getAttribute("conversations");
-      if(conversations == null || conversations.isEmpty()){
+      List<Activity> activities =
+        (List<Activity>) request.getAttribute("activities");
+      UserStore userStore = (UserStore) request.getAttribute("userStore");
+      if(activities == null || activities.isEmpty()){
+
       %>
         <p style="font-family: Verdana, sans-serif;">There are no active conversations at the moment.</p>
       <%
-      }
-      else{
+      } else {
       %>
           <div id="chat" style="font-family: Verdana, sans-serif;">
           <ul class="chat">
           <%
-            for(Conversation conversation : conversations){
+            Collections.sort(activities, new Comparator<Activity>() {
+                public int compare(Activity one, Activity other) {
+                    return other.getCreationTime().compareTo(one.getCreationTime());
+                }
+            });
+            for(Activity activity : activities){
+                if(activity.getType() == Activity.Type.USER_CREATED) {
           %>
-            <li><strong>Conversation:</strong> <a href="/chat/<%= conversation.getTitle() %>">
-              <%= conversation.getTitle() %></a></li>
+            <li><strong><%= activity.getCreationTimeFormatted() %>:</strong>
+              <%= activity.getUser(userStore).getName() %> joined!</li>
           <%
-            }
+                } else if(activity.getType() == Activity.Type.MESSAGE_SENT) {
+          %>
+            <li><strong><%= activity.getCreationTimeFormatted() %>:</strong>
+              <%= activity.getUser(userStore).getName() %> sent a message in
+              <a href="/chat/<%= activity.getTitle() %>"><%= activity.getTitle() %></a>:
+              "<%= activity.getDescription() %>"</li>
+          <%
+                } else if(activity.getType() == Activity.Type.CONVERSATION_CREATED) {
+          %>
+            <li><strong><%= activity.getCreationTimeFormatted() %>:</strong>
+              <%= activity.getUser(userStore).getName() %> created a conversation:
+              <a href="/chat/<%= activity.getTitle() %>"><%= activity.getTitle() %></a></li>
+          <%
+                }
+             }
           %>
           </ul>
           </div>
