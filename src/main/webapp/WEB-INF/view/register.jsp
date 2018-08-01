@@ -98,11 +98,17 @@
             <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcGaofOpzAuWowWCucje7gKQ1P4Z40dlZGKNuadOqPif-9UhAlLA">
           </label>
         </div>
-        <div class="status">
-          <h4 style="font-family: Verdana, sans-serif; text-align: center;" >Write a status below, be as creative as you want!</h4>
-              <form action="/profilepage">
-                <textarea name="message" rows="7" cols="100"></textarea>
-              </form>
+        <br>
+        <div class="bio">
+          <label for="bio">Write a bio below, be as creative as you want! </label>
+            <br/>
+           <input style="width: 300px;" type="text" name="bio" id="bio">
+        </div>
+        <br>
+        <div>
+          <label for="status">Write a status below: </label>
+            <br/>
+          <input style="width: 300px;" type="text" name="status" id="status">
         </div>
       <button type="submit">Submit</button>
     </form>
