@@ -66,6 +66,11 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
     <% } else{ %>
       <h1></h1>
     <% } %>
+    <% if(request.getSession().getAttribute("user") != null){ %>
+       <a href="/calendar">Calendar</a>
+    <% } else{ %>
+      <h1></h1>
+      <% } %>
   </nav>
 
   <div id="container">

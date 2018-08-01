@@ -105,5 +105,13 @@
     <servlet-name>LogoutServlet</servlet-name>
     <url-pattern>/logout</url-pattern>
   </servlet-mapping>
+  <servlet>
+  	<servlet-name>CalendarServlet</servlet-name>
+  	<servlet-class>codeu.controller.CalendarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+  	<servlet-name>CalendarServlet</servlet-name>
+  	<url-pattern>/calendar</url-pattern>
+  </servlet-mapping>
 
 </web-app>

@@ -42,6 +42,11 @@
       <h1></h1>
       <% } %>
     <% if(request.getSession().getAttribute("user") != null){ %>
+       <a href="/calendar">Calendar</a>
+    <% } else{ %>
+      <h1></h1>
+      <% } %>
+    <% if(request.getSession().getAttribute("user") != null){ %>
        <a href="/logout">Logout</a>
     <% } else{ %>
       <h1></h1>
@@ -64,6 +69,7 @@
         <li>Check out the <a href="/activityfeed">activity feed</a> to see what
             people are up to!</li>
         <li>If you want to edit your profile and see your sent messages go to <a href="/profilepage">the profile page</a>!</li>
+        <li>Quickly add any future meetups to a calendar at <a href="/calendar">the calendar page</a>!</li>
       </ul>
 
     </div>
