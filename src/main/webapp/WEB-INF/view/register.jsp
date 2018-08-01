@@ -18,6 +18,28 @@
 <head>
   <title>Register</title>
   <link rel="stylesheet" href="/css/main.css">
+  <style>
+    label > input{ /* HIDE RADIO */
+      visibility: hidden; /* Makes input not-clickable */
+      position: absolute; /* Remove input from document flow */
+    }
+    label > input + img{ /* IMAGE STYLES */
+      cursor:pointer;
+      border:2px solid transparent;
+    }
+    label > input:checked + img { /* (RADIO CHECKED) IMAGE STYLES */
+      border:2px solid #f00;
+    }
+    .profile_picture label {
+      display: inline-block;
+      width: 12%;
+      padding: 1%;
+    }
+    label > img {
+      position: relative;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
 
@@ -49,6 +71,39 @@
       <br/>
       <input style="width: 300px;" type="password" name="password" id="password">
       <br/><br/>
+      <p>To select a profile image, please click on one of the images below:</p>
+      <div class="profile_picture">
+          <label>
+            <input type="radio" name="fb" value="https://avatars0.githubusercontent.com/u/5882787?s=460&v=4" />
+            <img src="https://avatars0.githubusercontent.com/u/5882787?s=460&v=4" >
+          </label>
+          <label>
+            <input type="radio" name="fb" value="https://avatars0.githubusercontent.com/u/3112455?s=460&v=4" />
+            <img src="https://avatars0.githubusercontent.com/u/3112455?s=460&v=4">
+          </label>
+          <label>
+            <input type="radio" name="fb" value="https://avatars1.githubusercontent.com/u/6338799?s=460&v=4" />
+            <img src="https://avatars1.githubusercontent.com/u/6338799?s=460&v=4">
+          </label>
+          <label>
+            <input type="radio" name="fb" value="https://avatars1.githubusercontent.com/u/6096171?s=88&v=4" />
+            <img src="https://avatars1.githubusercontent.com/u/6096171?s=88&v=4">
+          </label>
+          <label>
+            <input type="radio" name="fb" value="https://avatars3.githubusercontent.com/u/21346180?s=460&v=4" />
+            <img src="https://avatars3.githubusercontent.com/u/21346180?s=460&v=4">
+          </label>
+          <label>
+            <input type="radio" name="fb" value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcGaofOpzAuWowWCucje7gKQ1P4Z40dlZGKNuadOqPif-9UhAlLA" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcGaofOpzAuWowWCucje7gKQ1P4Z40dlZGKNuadOqPif-9UhAlLA">
+          </label>
+        </div>
+        <div class="status">
+          <h4 style="font-family: Verdana, sans-serif; text-align: center;" >Write a status below, be as creative as you want!</h4>
+              <form action="/profilepage">
+                <textarea name="message" rows="7" cols="100"></textarea>
+              </form>
+        </div>
       <button type="submit">Submit</button>
     </form>
   </div>

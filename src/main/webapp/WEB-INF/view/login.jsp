@@ -37,7 +37,7 @@
     <h1 style="font-variant: small-caps; text-align: center;">Login</h1>
 
     <% if(request.getAttribute("error") != null){ %>
-        <h2 style="color:red"><%= request.getAttribute("error") %></h2>
+        <h2 style="color:red; font-family: Verdana, sans-serif; text-align: center;""><%= request.getAttribute("error") %></h2>
     <% } %>
 
     <form action="/login" method="POST" style="font-family: Verdana, sans-serif; text-align: center;">
