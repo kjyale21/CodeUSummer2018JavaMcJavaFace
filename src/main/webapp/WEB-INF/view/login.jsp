@@ -34,25 +34,25 @@
   </nav>
 
   <div id="container">
-    <h1 style="font-variant: small-caps;">Login</h1>
+    <h1 style="font-variant: small-caps; text-align: center;">Login</h1>
 
     <% if(request.getAttribute("error") != null){ %>
         <h2 style="color:red"><%= request.getAttribute("error") %></h2>
     <% } %>
 
-    <form action="/login" method="POST" style="font-family: Verdana, sans-serif;">
+    <form action="/login" method="POST" style="font-family: Verdana, sans-serif; text-align: center;">
       <label for="username">Username: </label>
       <br/>
-      <input type="text" name="username" id="username">
+      <input style="width: 300px;" type="text" name="username" id="username">
       <br/>
       <label for="password">Password: </label>
       <br/>
-      <input type="password" name="password" id="password">
+      <input style="width: 300px;" type="password" name="password" id="password">
       <br/><br/>
       <button type="submit">Login</button>
     </form>
 
-    <p style="font-family: Verdana, sans-serif;">New users can register <a href="/register">here</a>.</p>
+    <p style="font-family: Verdana, sans-serif; text-align: center;">New users can register <a href="/register">here</a>.</p>
   </div>
 </body>
 </html>
