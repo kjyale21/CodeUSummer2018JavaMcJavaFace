@@ -98,16 +98,16 @@ public class ProfilePageServlet extends HttpServlet {
         }
         System.out.println("heres the parameter" + request.getParameter("message"));
         // request.setAttribute("message", request.getParameter("message"));
-        if ((request.getParameter("message") != null )) {
-          String username = (String) request.getSession().getAttribute("user");
-          User current = userStore.getUser(username);
-          request.setAttribute("message", request.getParameter("message"));
-          current.setAbout((String) request.getAttribute("message"));
-          current.setStatus((String) request.getAttribute("status"));
-          System.out.println("heres the about" + current.getAbout());
-          User newUser = new User(current.getId(), username, current.getPasswordHash(), Instant.now(), current.getAbout(), current.getStatus());
-          userStore.updateUser(newUser);
-        }
+        // if ((request.getParameter("message") != null )) {
+        //   String username = (String) request.getSession().getAttribute("user");
+        //   User current = userStore.getUser(username);
+        //   request.setAttribute("message", request.getParameter("message"));
+        //   // current.setAbout((String) request.getAttribute("message"));
+        //   // current.setStatus((String) request.getAttribute("status"));
+        //   System.out.println("heres the about" + current.getAbout());
+        //   // User newUser = new User(current.getId(), username, current.getPasswordHash(), Instant.now(), current.getAbout(), current.getStatus());
+        //   userStore.updateUser(newUser);
+        // }
         request.setAttribute("users", userList);
         request.setAttribute("conversations", conversationList);
         request.setAttribute("conversationToMessageList", conversationToMessageList);

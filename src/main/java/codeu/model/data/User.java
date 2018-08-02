@@ -23,8 +23,9 @@ public class User {
   private final String name;
   private final String passwordHash;
   private final Instant creation;
-  private String about;
-  private String status;
+  private final String profilePicLink;
+  private final String about;
+  private final String status;
 
   /**
    * Constructs a new User.
@@ -39,15 +40,17 @@ public class User {
     this.name = name;
     this.passwordHash = passwordHash;
     this.creation = creation;
+    this.profilePicLink = null;
     this.about = null;
     this.status = null;
   }
 
-  public User(UUID id, String name, String passwordHash, Instant creation, String about, String status) {
+  public User(UUID id, String name, String passwordHash, Instant creation, String profilePicLink, String about, String status) {
     this.id = id;
     this.name = name;
     this.passwordHash = passwordHash;
     this.creation = creation;
+    this.profilePicLink = profilePicLink;
     this.about = about;
     this.status = status;
   }
@@ -72,6 +75,11 @@ public class User {
     return creation;
   }
 
+  /** Returns the profile pic link of this User. */
+  public String getProfilePicLink() {
+    return profilePicLink;
+  }
+
   /** Returns the about me/bio of this User. */
   public String getAbout() {
     return about;
@@ -82,12 +90,12 @@ public class User {
     return status;
   }
 
-  public void setStatus(String status) {
-    this.status = status;
-  }
+  // public void setStatus(String status) {
+  //   this.status = status;
+  // }
 
-  public void setAbout(String about) {
-    this.about = about;
-  }
+  // public void setAbout(String about) {
+  //   this.about = about;
+  // }
 }
 

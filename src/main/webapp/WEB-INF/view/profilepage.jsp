@@ -110,26 +110,18 @@
         <h1 style="font-variant: small-caps;"><%= request.getSession().getAttribute("user") %>'s Profile Page</h1>
         <p>
           <h4 style="font-variant: small-caps;" >Status</h4>
-            <form action="" style="font-family: Verdana, sans-serif;">
-              <input type="radio" name="status" value="available"> Available <br>
-              <input type="radio" name="status" value="busy"> Busy <br>
-              <input type="radio" name="status" value="away"> Away
-            </form>
           <h4 style="font-variant: small-caps;">About <%= request.getSession().getAttribute("user") %></h4>
-            <% if (request.getAttribute("message")  == null) { %>
-              Write a bio below!
-            <% } else{ %>
-              <%= request.getAttribute("message")  %>
-            <% } %>
+          <%= request.getSession().getAttribute("status") %>
           <hr/><br>
           <h4 style="font-variant: small-caps;">Edit Your About Me (only you can see this)</h4>
           <!--<form action="/profilepage" method="POST">
           </form>-->
-          <form action="/profilepage">
+          <!--<form action="/profilepage">
             <textarea name="message" rows="7" cols="100"></textarea>
 
               <input type="submit">
-          </form><hr/><br>
+          </form>-->
+          <hr/><br>
           <h4 style="font-variant: small-caps;"><%= request.getSession().getAttribute("user") %>'s Conversations</h4>
           <div>
             <% List<Conversation> conversations = (List<Conversation>) request.getAttribute("conversations");
