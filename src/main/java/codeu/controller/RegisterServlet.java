@@ -64,8 +64,11 @@ public class RegisterServlet extends HttpServlet {
     String password = request.getParameter("password");
     String hashedPassword = BCrypt.hashpw(password, BCrypt.gensalt());
     String profilePicLink = request.getParameter("fb");
+    request.setAttribute("fb", profilePicLink);
     String about = request.getParameter("bio");
+    request.setAttribute("bio", about);
     String status = request.getParameter("status");
+    request.setAttribute("status", status);
 
     // UUID id, String name, String passwordHash, Instant creation, String profilePicLink, String about, String status
     User user = new User(UUID.randomUUID(), username, hashedPassword, Instant.now(), profilePicLink, about, status);

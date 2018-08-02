@@ -101,6 +101,7 @@ public class UserStore {
   public void addUser(User user) {
     ids.put(user.getName(), user.getId());
     users.put(user.getId(), user);
+    System.out.println("User store user status" + user.getStatus());
     persistentStorageAgent.writeThrough(user);
   }
 

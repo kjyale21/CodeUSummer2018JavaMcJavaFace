@@ -92,6 +92,7 @@ public class PersistentStorageAgent {
   /** Write a User object to the Datastore service. */
   public void writeThrough(User user) {
     persistentDataStore.writeThrough(user);
+    System.out.println("store agent write thorugh user status" + user.getStatus());
   }
 
   /** Write a Message object to the Datastore service. */

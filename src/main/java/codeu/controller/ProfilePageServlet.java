@@ -89,6 +89,9 @@ public class ProfilePageServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
+        System.out.println(userStore.getUser((String) request.getSession().getAttribute("user")).getStatus());
+        System.out.println("current user profile session status " + request.getSession().getAttribute("user"));
+        System.out.println("current user profile session status " + request.getSession().getAttribute("bio"));
         List<Conversation> conversationList = conversationStore.getAllConversations();
         List<User> userList = userStore.getAllUsers();
         HashMap<Conversation, List<Message>> conversationToMessageList = new HashMap<>();

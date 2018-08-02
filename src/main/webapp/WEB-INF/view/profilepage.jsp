@@ -17,6 +17,8 @@
 <%@ page import="codeu.model.data.Conversation" %>
 <%@ page import="codeu.model.data.Message" %>
 <%@ page import="codeu.model.data.User" %>
+<%@ page import="codeu.model.store.basic.UserStore" %>
+<% UserStore userStore = UserStore.getInstance(); %>
 
 <!DOCTYPE html>
 <html>
@@ -80,40 +82,22 @@
       <% if(request.getSession().getAttribute("user") == null){ %>
         Please <a href="/login">login</a> to see your profile page!
       <% } else{ %>
-        <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt="placeholder for profile picture" style="border-radius: 100%; display: block;">
-        <div class="profile">
-          <label>
-            <input type="radio" name="fb" value="https://avatars0.githubusercontent.com/u/5882787?s=460&v=4" />
-            <img src="https://avatars0.githubusercontent.com/u/5882787?s=460&v=4" >
-          </label>
-          <label>
-            <input type="radio" name="fb" value="https://avatars0.githubusercontent.com/u/3112455?s=460&v=4" />
-            <img src="https://avatars0.githubusercontent.com/u/3112455?s=460&v=4">
-          </label>
-          <label>
-            <input type="radio" name="fb" value="https://avatars1.githubusercontent.com/u/6338799?s=460&v=4" />
-            <img src="https://avatars1.githubusercontent.com/u/6338799?s=460&v=4">
-          </label>
-          <label>
-            <input type="radio" name="fb" value="https://avatars1.githubusercontent.com/u/6096171?s=88&v=4" />
-            <img src="https://avatars1.githubusercontent.com/u/6096171?s=88&v=4">
-          </label>
-          <label>
-            <input type="radio" name="fb" value="https://avatars3.githubusercontent.com/u/21346180?s=460&v=4" />
-            <img src="https://avatars3.githubusercontent.com/u/21346180?s=460&v=4">
-          </label>
-          <label>
-            <input type="radio" name="fb" value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcGaofOpzAuWowWCucje7gKQ1P4Z40dlZGKNuadOqPif-9UhAlLA" />
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcGaofOpzAuWowWCucje7gKQ1P4Z40dlZGKNuadOqPif-9UhAlLA">
-          </label>
-        </div>
+        <% if (userStore.getUser((String) request.getSession().getAttribute("user")).getProfilePicLink() == null) { %>
+          <img src="https://upload.wikimedia.org/wikipedia/commons/7/7c/Profile_avatar_placeholder_large.png" alt="placeholder for profile picture" style="border-radius: 100%; display: block;">
+        <% } else { %>
+          <img src=<%= userStore.getUser((String) request.getSession().getAttribute("user")).getProfilePicLink()%> >
+        <% } %>
+
+
         <h1 style="font-variant: small-caps;"><%= request.getSession().getAttribute("user") %>'s Profile Page</h1>
         <p>
           <h4 style="font-variant: small-caps;" >Status</h4>
+          <%= userStore.getUser((String) request.getSession().getAttribute("user")).getStatus() %>
           <h4 style="font-variant: small-caps;">About <%= request.getSession().getAttribute("user") %></h4>
-          <%= request.getSession().getAttribute("status") %>
+          <%= userStore.getUser((String) request.getSession().getAttribute("user")).getAbout() %>
           <hr/><br>
           <h4 style="font-variant: small-caps;">Edit Your About Me (only you can see this)</h4>
+          <%= request.getSession().getAttribute("bio") %>
           <!--<form action="/profilepage" method="POST">
           </form>-->
           <!--<form action="/profilepage">
