@@ -75,27 +75,27 @@
       <div class="profile_picture">
           <label>
             <input type="radio" name="fb" value="https://avatars0.githubusercontent.com/u/5882787?s=460&v=4" />
-            <img src="https://avatars0.githubusercontent.com/u/5882787?s=460&v=4" >
+            <img src="/images/githubavatar1.png" alt="githubavatar1">
           </label>
           <label>
             <input type="radio" name="fb" value="https://avatars0.githubusercontent.com/u/3112455?s=460&v=4" />
-            <img src="https://avatars0.githubusercontent.com/u/3112455?s=460&v=4">
+            <img src="/images/githubavatar2.png" alt="githubavatar2">
           </label>
           <label>
             <input type="radio" name="fb" value="https://avatars1.githubusercontent.com/u/6338799?s=460&v=4" />
-            <img src="https://avatars1.githubusercontent.com/u/6338799?s=460&v=4">
+            <img src="/images/githubavatar3.png" alt="githubavatar3">
           </label>
           <label>
             <input type="radio" name="fb" value="https://avatars1.githubusercontent.com/u/6096171?s=88&v=4" />
-            <img src="https://avatars1.githubusercontent.com/u/6096171?s=88&v=4">
+            <img src="/images/githubavatar4.png" alt="githubavatar4">
           </label>
           <label>
             <input type="radio" name="fb" value="https://avatars3.githubusercontent.com/u/21346180?s=460&v=4" />
-            <img src="https://avatars3.githubusercontent.com/u/21346180?s=460&v=4">
+            <img src="/images/githubavatar5.png" alt="githubavatar5">
           </label>
           <label>
             <input type="radio" name="fb" value="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcGaofOpzAuWowWCucje7gKQ1P4Z40dlZGKNuadOqPif-9UhAlLA" />
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcGaofOpzAuWowWCucje7gKQ1P4Z40dlZGKNuadOqPif-9UhAlLA">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcGaofOpzAuWowWCucje7gKQ1P4Z40dlZGKNuadOqPif-9UhAlLA" alt="githubavatar6">
           </label>
         </div>
         <br>
