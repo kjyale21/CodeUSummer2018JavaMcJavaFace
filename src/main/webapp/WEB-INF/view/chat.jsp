@@ -14,12 +14,24 @@
   limitations under the License.
 --%>
 <%@ page import="java.util.List" %>
+<%@ page import="java.util.Set" %>
+<%@ page import="java.util.HashSet" %>
 <%@ page import="codeu.model.data.Conversation" %>
 <%@ page import="codeu.model.data.Message" %>
+<%@ page import="codeu.model.data.User" %>
 <%@ page import="codeu.model.store.basic.UserStore" %>
+<%@ page import="codeu.model.store.basic.MessageStore" %>
 <%
+UserStore userStore = UserStore.getInstance();
 Conversation conversation = (Conversation) request.getAttribute("conversation");
 List<Message> messages = (List<Message>) request.getAttribute("messages");
+Set<User> userSet = new HashSet<User>();
+for (int i = 0; i < messages.size(); i++) {
+  userSet.add(userStore.getUser(messages.get(i).getAuthorId()));
+}
+// for (User user : userSet) {
+//   System.out.println(user.getName());
+// }
 %>
 
 <!DOCTYPE html>
@@ -66,17 +78,34 @@ List<Message> messages = (List<Message>) request.getAttribute("messages");
     <% } else{ %>
       <h1></h1>
     <% } %>
+    <% if(request.getSession().getAttribute("user") != null){ %>
+       <a href="/logout">Logout</a>
+    <% } else{ %>
+      <h1></h1>
+      <% } %>
   </nav>
 
   <div id="container">
 
-    <h1><%= conversation.getTitle() %>
-      <a href="" style="float: right">&#8635;</a></h1>
-
+    <h1 style="font-family: Verdana, sans-serif; font-variant: small-caps"><%= conversation.getTitle() %>
+      <a href="" style="float: right; font-variant: small-caps">&#8635;</a></h1>
+      <h5 style="font-family: Verdana, sans-serif; font-variant: small-caps;">Participants:</h5>
+    <ul style="font-family: Verdana, sans-serif; font-size: 3;">
+    <% for (User user : userSet) {
+      String username = user.getName();
+      String profilePicLink = user.getProfilePicLink();
+      String status = user.getStatus();
+      if (profilePicLink != null && status != null) { %>
+        <li><img src=<%= profilePicLink %> style="border-radius: 50%; width:50px"alt="profile pic"><br><strong>Username: </strong><%= username%><br><strong>Status: </strong><%= status %></li>
+       <% } else { %>
+        <li><strong>Username: </strong><%= username %></li>
+        <% } %>
+    <% } %>
+    </ul>
     <hr/>
 
     <div id="chat">
-      <ul>
+      <ul style="font-family: Verdana, sans-serif;">
     <%
       for (Message message : messages) {
         String author = UserStore.getInstance()

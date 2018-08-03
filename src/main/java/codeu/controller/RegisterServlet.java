@@ -49,25 +49,25 @@ public class RegisterServlet extends HttpServlet {
   /** This is a helper function to initialize the map with the verification pictures. */
   public void initializePicMap() throws ServletException {
     String verificationPic0 = "czchjiav";
-    String verificationPicLetters0 = "/images/registrationPics/czchjiav.gif";
+    String verificationPicLetters0 = "/images/verificationLetterPics/czchjiav.gif";
     String verificationPic1 = "dpbaiajz";
-    String verificationPicLetters1 = "/images/registrationPics/dpbaiajz.gif";
+    String verificationPicLetters1 = "/images/verificationLetterPics/dpbaiajz.gif";
     String verificationPic2 = "lucytpft";
-    String verificationPicLetters2 = "/images/registrationPics/lucytpft.gif";
+    String verificationPicLetters2 = "/images/verificationLetterPics/lucytpft.gif";
     String verificationPic3 = "nrtgdkwn";
-    String verificationPicLetters3 = "/images/registrationPics/nrtgdkwn.gif";
+    String verificationPicLetters3 = "/images/verificationLetterPics/nrtgdkwn.gif";
     String verificationPic4 = "nvhoxdm";
-    String verificationPicLetters4 = "/images/registrationPics/nvhoxdm.gif";
+    String verificationPicLetters4 = "/images/verificationLetterPics/nvhoxdm.gif";
     String verificationPic5 = "phxxjdrk";
-    String verificationPicLetters5 = "/images/registrationPics/phxxjdrk.gif";
+    String verificationPicLetters5 = "/images/verificationLetterPics/phxxjdrk.gif";
     String verificationPic6 = "udbbgxls";
-    String verificationPicLetters6 = "/images/registrationPics/udbbgxls.gif";
+    String verificationPicLetters6 = "/images/verificationLetterPics/udbbgxls.gif";
     String verificationPic7 = "wvvjcfua";
-    String verificationPicLetters7 = "/images/registrationPics/wvvjcfua.gif";
+    String verificationPicLetters7 = "/images/verificationLetterPics/wvvjcfua.gif";
     String verificationPic8 = "yhykemwr";
-    String verificationPicLetters8 = "/images/registrationPics/yhykemwr.gif";
+    String verificationPicLetters8 = "/images/verificationLetterPics/yhykemwr.gif";
     String verificationPic9 = "zagxtwdx";
-    String verificationPicLetters9 = "/images/registrationPics/zagxtwdx.gif";
+    String verificationPicLetters9 = "/images/verificationLetterPics/zagxtwdx.gif";
     verificationPictures.put(0, verificationPicLetters0);
     verificationPictures.put(1, verificationPicLetters1);
     verificationPictures.put(2, verificationPicLetters2);
