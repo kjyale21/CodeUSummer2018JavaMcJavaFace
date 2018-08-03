@@ -51,7 +51,7 @@ public class ChatServlet extends HttpServlet {
   private ActivityStore activityStore;
   
   /** Store Text Processors that give access to parsing BBCode */ 
-  private TextProcessor textProcessor
+  private TextProcessor textProcessor;
 
   /** Set up state for handling chat requests. */
   @Override
