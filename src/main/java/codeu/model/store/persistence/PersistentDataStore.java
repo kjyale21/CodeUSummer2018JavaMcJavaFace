@@ -197,9 +197,7 @@ public class PersistentDataStore {
     userEntity.setProperty("creation_time", user.getCreationTime().toString());
     userEntity.setProperty("fb", user.getProfilePicLink());
     userEntity.setProperty("bio", user.getAbout());
-    // System.out.println("persistance datasstore writeTrhough status" + user.getAbout());
     userEntity.setProperty("status", user.getStatus());
-    // System.out.println("persistance datasstore writeTrhough status" + user.getStatus());
 
     datastore.put(userEntity);
   }

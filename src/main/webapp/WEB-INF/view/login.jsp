@@ -50,8 +50,7 @@
       <input style="width: 300px;" type="password" name="password" id="password">
       <br/><br/>
       <div>
-          <%String verificationLetters = (String) request.getAttribute("verificationPicLetters");
-          System.out.println(verificationLetters);%>
+          <%String verificationLetters = (String) request.getAttribute("verificationPicLetters");%>
           <img src= <%=verificationLetters%> alt="verification picture with letters" width="200" height="150">
           <br>
           <label for="verification">Enter the letters in the image above:</label>

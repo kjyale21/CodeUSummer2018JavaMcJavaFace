@@ -159,9 +159,6 @@ public class RegisterServlet extends HttpServlet {
 
     // UUID id, String name, String passwordHash, Instant creation, String profilePicLink, String about, String status
     User user = new User(UUID.randomUUID(), username, hashedPassword, Instant.now(), profilePicLink, about, status);
-    System.out.println(profilePicLink);
-    System.out.println(about);
-    System.out.println(status);
     // User user = new User(UUID.randomUUID(), username, hashedPassword, Instant.now());
     userStore.addUser(user);
 

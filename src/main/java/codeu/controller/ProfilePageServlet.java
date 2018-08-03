@@ -89,9 +89,9 @@ public class ProfilePageServlet extends HttpServlet {
     @Override
     public void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException, ServletException {
-        System.out.println(userStore.getUser((String) request.getSession().getAttribute("user")).getStatus());
-        System.out.println("current user profile session status " + request.getSession().getAttribute("user"));
-        System.out.println("current user profile session status " + request.getSession().getAttribute("bio"));
+        // System.out.println(userStore.getUser((String) request.getSession().getAttribute("user")).getStatus());
+        // System.out.println("current user profile session status " + request.getSession().getAttribute("user"));
+        // System.out.println("current user profile session status " + request.getSession().getAttribute("bio"));
         List<Conversation> conversationList = conversationStore.getAllConversations();
         List<User> userList = userStore.getAllUsers();
         HashMap<Conversation, List<Message>> conversationToMessageList = new HashMap<>();
@@ -99,18 +99,6 @@ public class ProfilePageServlet extends HttpServlet {
             List<Message> messages = messageStore.getMessagesInConversation(conversation.getId());
             conversationToMessageList.put(conversation, messages);
         }
-        System.out.println("heres the parameter" + request.getParameter("message"));
-        // request.setAttribute("message", request.getParameter("message"));
-        // if ((request.getParameter("message") != null )) {
-        //   String username = (String) request.getSession().getAttribute("user");
-        //   User current = userStore.getUser(username);
-        //   request.setAttribute("message", request.getParameter("message"));
-        //   // current.setAbout((String) request.getAttribute("message"));
-        //   // current.setStatus((String) request.getAttribute("status"));
-        //   System.out.println("heres the about" + current.getAbout());
-        //   // User newUser = new User(current.getId(), username, current.getPasswordHash(), Instant.now(), current.getAbout(), current.getStatus());
-        //   userStore.updateUser(newUser);
-        // }
         request.setAttribute("users", userList);
         request.setAttribute("conversations", conversationList);
         request.setAttribute("conversationToMessageList", conversationToMessageList);
