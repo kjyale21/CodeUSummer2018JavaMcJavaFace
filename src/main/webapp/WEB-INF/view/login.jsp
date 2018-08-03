@@ -37,7 +37,7 @@
     <h1 style="font-variant: small-caps; text-align: center;">Login</h1>
 
     <% if(request.getAttribute("error") != null){ %>
-        <h2 style="color:red; font-family: Verdana, sans-serif; text-align: center;""><%= request.getAttribute("error") %></h2>
+        <center><h2 style="color:red; font-family: Verdana, sans-serif; text-align: center;""><%= request.getAttribute("error") %></h2></center>
     <% } %>
 
     <form action="/login" method="POST" style="font-family: Verdana, sans-serif; text-align: center;">
@@ -49,6 +49,15 @@
       <br/>
       <input style="width: 300px;" type="password" name="password" id="password">
       <br/><br/>
+      <div>
+          <%String verificationLetters = (String) request.getAttribute("verificationPicLetters");
+          System.out.println(verificationLetters);%>
+          <img src= <%=verificationLetters%> alt="verification picture with letters" width="200" height="150">
+          <br>
+          <label for="verification">Enter the letters in the image above:</label>
+          <br>
+          <input type="text" name="verification" id="verification">
+      </div>
       <button type="submit">Login</button>
     </form>
 

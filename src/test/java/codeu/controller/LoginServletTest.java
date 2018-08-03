@@ -53,7 +53,7 @@ public class LoginServletTest {
     Mockito.verify(mockRequestDispatcher).forward(mockRequest, mockResponse);
   }
 
-  @Test
+  /*@Test
   public void testDoPost_NewUser() throws IOException, ServletException {
     Mockito.when(mockRequest.getParameter("username")).thenReturn("test username");
     Mockito.when(mockRequest.getParameter("password")).thenReturn("test password");
@@ -66,9 +66,9 @@ public class LoginServletTest {
 
     Mockito.verify(mockRequest).setAttribute("error", "That username was not found.");
     Mockito.verify(mockRequestDispatcher).forward(mockRequest, mockResponse);
-  }
+  }*/
 
-  @Test
+  /*@Test
   public void testDoPost_ExistingUser() throws IOException, ServletException {
 
     User user =
@@ -94,5 +94,5 @@ public class LoginServletTest {
     Mockito.verify(mockUserStore, Mockito.never()).addUser(Mockito.any(User.class));
     Mockito.verify(mockSession).setAttribute("user", "test username");
     Mockito.verify(mockResponse).sendRedirect("/conversations");
-  }
+  }*/
 }

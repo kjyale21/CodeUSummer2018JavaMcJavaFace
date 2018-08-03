@@ -59,7 +59,7 @@
     <h1 style="font-variant: small-caps; text-align: center;">Register</h1>
 
     <% if(request.getAttribute("error") != null){ %>
-        <h2 style="color:red"><%= request.getAttribute("error") %></h2>
+        <center><h2 style="color:red"><%= request.getAttribute("error") %></h2></center>
     <% } %>
 
     <form action="/register" method="POST" style="font-family: Verdana, sans-serif; text-align: center;">
