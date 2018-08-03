@@ -242,16 +242,19 @@ public class ChatServletTest {
     Mockito.when(mockConversationStore.getConversationWithTitle("test_conversation"))
         .thenReturn(fakeConversation);
 
-    Mockito.when(mockRequest.getParameter("message"))
-        .thenReturn("Contains [b]html[/b], [i]tags[/i],[s]strikethrough text[/s], and <script>JavaScript</script> content.");
-
-    chatServlet.doPost(mockRequest, mockResponse);
+    String message = "Contains [b]BBCode[/b] [i]tags[/i] and <b>html</b> and " +
+        "<script>JavaScript</script> content.";
+    String cleanMessage = "Contains [b]BBCode[/b] [i]tags[/i] and html and  content.";
+    String cleanParsedMessage = "Contains <b>BBCode</b> <i>tags</i> and <b>html</b> and  content.";
+    Mockito.when(mockRequest.getParameter("message")).thenReturn(message);
+    Mockito.when(mockTextProcessor.process(cleanMessage)).thenReturn(cleanParsedMessage);
+    
+	chatServlet.doPost(mockRequest, mockResponse);
 
     ArgumentCaptor<Message> messageArgumentCaptor = ArgumentCaptor.forClass(Message.class);
     Mockito.verify(mockMessageStore).addMessage(messageArgumentCaptor.capture());
-    Assert.assertEquals(
-        "Contains <b>html</b>, <i>tag</i>, <s>strikethrough text</s>, and  content.", messageArgumentCaptor.getValue().getContent());
-
-    Mockito.verify(mockResponse).sendRedirect("/chat/test_conversation");
+    Assert.assertEquals(cleanParsedMessage, messageArgumentCaptor.getValue().getContent());
+   
+   Mockito.verify(mockResponse).sendRedirect("/chat/test_conversation");
   }
 }

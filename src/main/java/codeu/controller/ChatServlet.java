@@ -51,7 +51,7 @@ public class ChatServlet extends HttpServlet {
   private ActivityStore activityStore;
   
   /** Store Text Processors that give access to parsing BBCode */ 
-  private TextProcessor textProcessor
+  private TextProcessor textProcessor;
 
   /** Set up state for handling chat requests. */
   @Override
@@ -61,7 +61,7 @@ public class ChatServlet extends HttpServlet {
     setMessageStore(MessageStore.getInstance());
     setUserStore(UserStore.getInstance());
     setActivityStore(ActivityStore.getInstance());
-    setTextprocessor(BBProcessorFactory.getInstance().create());
+    setTextProcessor(BBProcessorFactory.getInstance().create());
   }
 
   /**
@@ -168,10 +168,10 @@ public class ChatServlet extends HttpServlet {
 
     String messageContent = request.getParameter("message");
 
-    // this removes any HTML from the message content
-    String cleanedMessageContent = Jsoup.clean(messageContent, Whitelist.none());
+    // removes HTML from the message content
+    messageContent = Jsoup.clean(messageContent, Whitelist.none());
 
-    // this parses BBCode tags to HTML tags
+    // parses BBCode tags to HTML tags
     messageContent = textProcessor.process(messageContent);
     
     
@@ -180,7 +180,7 @@ public class ChatServlet extends HttpServlet {
             UUID.randomUUID(),
             conversation.getId(),
             user.getId(),
-            cleanedMessageContent,
+            messageContent,
             Instant.now());
     Activity activity = new Activity(user.getId(), conversation.getTitle(),
             Activity.Type.MESSAGE_SENT, message.getContent(), message.getCreationTime());
