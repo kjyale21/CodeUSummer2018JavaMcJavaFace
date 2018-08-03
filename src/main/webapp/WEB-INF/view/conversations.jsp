@@ -45,6 +45,11 @@
       <h1></h1>
     <% } %>
     <% if(request.getSession().getAttribute("user") != null){ %>
+       <a href="/calendar">Calendar</a>
+    <% } else{ %>
+      <h1></h1>
+      <% } %>
+    <% if(request.getSession().getAttribute("user") != null){ %>
        <a href="/logout">Logout</a>
     <% } else{ %>
       <h1></h1>

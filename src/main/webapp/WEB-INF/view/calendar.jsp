@@ -13,14 +13,40 @@
   See the License for the specific language governing permissions and
   limitations under the License.
 --%>
+<%@ page import="java.util.List" %>
+<%@ page import="codeu.model.data.Conversation" %>
+<%@ page import="codeu.model.data.Message" %>
+<%@ page import="codeu.model.data.User" %>
+
 <!DOCTYPE html>
 <html>
 <head>
-  <title>CodeU Chat App</title>
+  <title>Calendar Page</title>
   <link rel="stylesheet" href="/css/main.css">
+  <style>
+    label > input{ /* HIDE RADIO */
+      visibility: hidden; /* Makes input not-clickable */
+      position: absolute; /* Remove input from document flow */
+    }
+    label > input + img{ /* IMAGE STYLES */
+      cursor:pointer;
+      border:2px solid transparent;
+    }
+    label > input:checked + img { /* (RADIO CHECKED) IMAGE STYLES */
+      border:2px solid #f00;
+    }
+    .profile label {
+      display: inline-block;
+      width: 12%;
+      padding: 1%;
+    }
+    label > img {
+      position: relative;
+      width: 100%;
+    }
+  </style>
 </head>
 <body>
-
   <nav style="background-color:#67AAF9; font-family: sans-serif; font-variant:small-caps;">
     <a id="navTitle" href="/">CodeU Chat App</a>
     <a href="/conversations">Conversations</a>
@@ -52,27 +78,18 @@
       <h1></h1>
       <% } %>
   </nav>
-
+  
   <div id="container">
     <div
       style="width:75%; margin-left:auto; margin-right:auto; margin-top: 50px;">
 
-      <h1 style="font-variant: small-caps;">CodeU Chat App</h1>
-      <h2 style="font-variant: small-caps;">Welcome from Team 27, javaMcJavaFace!</h2>
-
-      <ul style="font-family: Verdana, sans-serif;">
-        <li><a href="/login">Login</a> to get started.</li>
-        <li>Go to the <a href="/conversations">conversations</a> page to
-            create or join a conversation.</li>
-        <li>View the <a href="/about.jsp">about</a> page to learn more about the
-            project.</li>
-        <li>Check out the <a href="/activityfeed">activity feed</a> to see what
-            people are up to!</li>
-        <li>If you want to edit your profile and see your sent messages go to <a href="/profilepage">the profile page</a>!</li>
-        <li>Quickly add any future meetups to a calendar at <a href="/calendar">the calendar page</a>!</li>
-      </ul>
-
-    </div>
-  </div>
+      <h1 style="font-variant: small-caps;">Plan ahead to chat with friends.</h1>
+      <p style="font-family: Verdana, sans-serif;">
+        Use this gcal to plan out events!
+      </p>
+      
+<iframe src="https://calendar.google.com/calendar/b/1/embed?title=CodeU%20JavaMcJavaFace%20Scheduler&amp;height=600&amp;wkst=1&amp;bgcolor=%2333ccff&amp;src=en.usa%23holiday%40group.v.calendar.google.com&amp;color=%23125A12&amp;ctz=America%2FLos_Angeles" style="border:solid 1px #777" width="1000" height="600" frameborder="20" scrolling="no"></iframe>  
+  
+  
 </body>
 </html>
