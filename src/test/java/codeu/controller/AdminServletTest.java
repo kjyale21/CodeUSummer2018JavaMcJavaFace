@@ -16,37 +16,32 @@ import org.mockito.Mockito;
 
 import codeu.model.data.User;
 import codeu.model.store.basic.UserStore;
-import codeu.model.data.Activity;
-import codeu.model.store.basic.ActivityStore;
 
-public class RegisterServletTest {
+public class AdminServletTest {
 
-  private RegisterServlet registerServlet;
+  private AdminServlet adminServlet;
   private HttpServletRequest mockRequest;
   private HttpServletResponse mockResponse;
   private RequestDispatcher mockRequestDispatcher;
-  private ActivityStore mockActivityStore;
 
   @Before
   public void setup() {
-    registerServlet = new RegisterServlet();
+    adminServlet = new AdminServlet();
     mockRequest = Mockito.mock(HttpServletRequest.class);
     mockResponse = Mockito.mock(HttpServletResponse.class);
     mockRequestDispatcher = Mockito.mock(RequestDispatcher.class);
-    Mockito.when(mockRequest.getRequestDispatcher("/WEB-INF/view/register.jsp"))
+    Mockito.when(mockRequest.getRequestDispatcher("/WEB-INF/view/admin.jsp"))
         .thenReturn(mockRequestDispatcher);
-
-    mockActivityStore = Mockito.mock(ActivityStore.class);
-    registerServlet.setActivityStore(mockActivityStore);
   }
 
   @Test
   public void testDoGet() throws IOException, ServletException {
-    registerServlet.doGet(mockRequest, mockResponse);
+    adminServlet.doGet(mockRequest, mockResponse);
 
     Mockito.verify(mockRequestDispatcher).forward(mockRequest, mockResponse);
   }
 
+  /*
   @Test
   public void testDoPost_BadUsername() throws IOException, ServletException {
     Mockito.when(mockRequest.getParameter("username")).thenReturn("bad !@#$% username");
@@ -58,7 +53,7 @@ public class RegisterServletTest {
     Mockito.verify(mockRequestDispatcher).forward(mockRequest, mockResponse);
   }
 
-  /*@Test
+  @Test
   public void testDoPost_NewUser() throws IOException, ServletException {
     Mockito.when(mockRequest.getParameter("username")).thenReturn("test username");
     Mockito.when(mockRequest.getParameter("password")).thenReturn("test password");
@@ -78,7 +73,7 @@ public class RegisterServletTest {
     Assert.assertEquals(60, userArgumentCaptor.getValue().getPasswordHash().length());
 
     Mockito.verify(mockResponse).sendRedirect("/login");
-  }*/
+  }
 
   @Test
   public void testDoPost_ExistingUser() throws IOException, ServletException {
@@ -93,5 +88,5 @@ public class RegisterServletTest {
     Mockito.verify(mockUserStore, Mockito.never()).addUser(Mockito.any(User.class));
     Mockito.verify(mockRequest).setAttribute("error", "That username is already taken.");
     Mockito.verify(mockRequestDispatcher).forward(mockRequest, mockResponse);
-  }
+  } */
 }
