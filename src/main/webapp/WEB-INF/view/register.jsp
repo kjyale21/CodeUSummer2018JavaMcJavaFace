@@ -110,6 +110,17 @@
             <br/>
           <input style="width: 300px;" type="text" name="status" id="status">
         </div>
+        <br>
+        <div>
+          <%String verificationLetters = (String) request.getAttribute("verificationPicLetters");
+          %>
+          <img src= <%=verificationLetters%> alt="verification picture with letters" width="200" height="150">
+          <br>
+          <label for="verification">Enter the letters in the image above:</label>
+          <br>
+          <input type="text" name="verification" id="verification">
+        </div>
+        <br>
       <button type="submit">Submit</button>
     </form>
   </div>

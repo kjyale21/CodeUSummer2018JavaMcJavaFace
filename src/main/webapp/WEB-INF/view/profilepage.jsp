@@ -96,16 +96,6 @@
           <h4 style="font-variant: small-caps;">About <%= request.getSession().getAttribute("user") %></h4>
           <%= userStore.getUser((String) request.getSession().getAttribute("user")).getAbout() %>
           <hr/><br>
-          <h4 style="font-variant: small-caps;">Edit Your About Me (only you can see this)</h4>
-          <%= request.getSession().getAttribute("bio") %>
-          <!--<form action="/profilepage" method="POST">
-          </form>-->
-          <!--<form action="/profilepage">
-            <textarea name="message" rows="7" cols="100"></textarea>
-
-              <input type="submit">
-          </form>-->
-          <hr/><br>
           <h4 style="font-variant: small-caps;"><%= request.getSession().getAttribute("user") %>'s Conversations</h4>
           <div>
             <% List<Conversation> conversations = (List<Conversation>) request.getAttribute("conversations");
