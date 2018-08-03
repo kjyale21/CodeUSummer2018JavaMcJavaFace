@@ -1,5 +1,5 @@
 package codeu.controller;
-package org.kefirsf.bb;
+import org.kefirsf.bb;
 
  public interface TextProcessor 
 {
